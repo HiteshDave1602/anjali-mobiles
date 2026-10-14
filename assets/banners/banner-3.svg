@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <!-- PLACEHOLDER banner 3: earbuds & audio. Replace with a real photo (1600×900 or wider, subject on the right). -->
+  <defs>
+    <radialGradient id="g" cx="72%" cy="50%" r="55%">
+      <stop offset="0" stop-color="#262626"/>
+      <stop offset="1" stop-color="#111111"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <!-- sound waves -->
+  <g fill="none" stroke="#E84426" stroke-width="12" stroke-linecap="round">
+    <path d="M880 330a200 200 0 0 0 0 280" opacity=".45"/>
+    <path d="M820 280a270 270 0 0 0 0 380" opacity=".25"/>
+    <path d="M1380 330a200 200 0 0 1 0 280" opacity=".45"/>
+    <path d="M1440 280a270 270 0 0 1 0 380" opacity=".25"/>
+  </g>
+  <!-- charging case -->
+  <g transform="translate(980 470)">
+    <rect width="300" height="210" rx="100" fill="#F4F4F4"/>
+    <path d="M10 80h280" stroke="#E5E5E5" stroke-width="6"/>
+    <circle cx="150" cy="140" r="9" fill="#E84426"/>
+  </g>
+  <!-- earbuds -->
+  <g fill="#FFFFFF" stroke="#E5E5E5" stroke-width="6">
+    <g transform="translate(1040 250) rotate(-18)">
+      <ellipse cx="0" cy="0" rx="54" ry="62"/>
+      <rect x="-20" y="40" width="40" height="150" rx="20"/>
+    </g>
+    <g transform="translate(1220 250) rotate(18)">
+      <ellipse cx="0" cy="0" rx="54" ry="62"/>
+      <rect x="-20" y="40" width="40" height="150" rx="20"/>
+    </g>
+  </g>
+  <g>
+    <rect x="1420" y="96" width="22" height="22" fill="#E84426"/>
+    <rect x="1456" y="76" width="14" height="14" fill="#E84426"/>
+    <rect x="1392" y="128" width="16" height="16" fill="#F5F5F5"/>
+  </g>
+</svg>

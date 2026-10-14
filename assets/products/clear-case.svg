@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- PLACEHOLDER product image: Shockproof Clear Case. Replace with a real photo (square, 800×800 recommended). -->
+  <rect width="400" height="400" fill="#F4F4F4"/>
+  <rect x="120" y="50" width="160" height="300" rx="30" fill="#FFFFFF" stroke="#737373" stroke-width="5"/>
+  <rect x="132" y="62" width="136" height="276" rx="22" fill="none" stroke="#E5E5E5" stroke-width="3"/>
+  <rect x="140" y="72" width="70" height="80" rx="18" fill="#E5E5E5"/>
+  <circle cx="160" cy="92" r="11" fill="#111111"/><circle cx="190" cy="92" r="11" fill="#111111"/><circle cx="160" cy="130" r="11" fill="#111111"/>
+  <path d="M120 80a30 30 0 0 1 30-30M280 80a30 30 0 0 0-30-30M120 320a30 30 0 0 0 30 30M280 320a30 30 0 0 1-30 30" stroke="#E84426" stroke-width="8" fill="none" stroke-linecap="round"/>
+</svg>

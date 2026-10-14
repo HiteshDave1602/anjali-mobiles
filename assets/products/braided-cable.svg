@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- PLACEHOLDER product image: Braided Type-C Cable. Replace with a real photo. -->
+  <rect width="400" height="400" fill="#F4F4F4"/>
+  <path d="M110 110c0 120 180 40 180 150s-110 90-150 40" fill="none" stroke="#111111" stroke-width="16" stroke-linecap="round"/>
+  <path d="M110 110c0 120 180 40 180 150s-110 90-150 40" fill="none" stroke="#525252" stroke-width="4" stroke-dasharray="6 10"/>
+  <rect x="90" y="50" width="40" height="64" rx="10" fill="#111111"/><rect x="100" y="30" width="20" height="24" rx="6" fill="#737373"/>
+  <g transform="rotate(-40 140 300)"><rect x="120" y="290" width="40" height="64" rx="10" fill="#111111"/><rect x="130" y="350" width="20" height="24" rx="6" fill="#737373"/></g>
+  <rect x="100" y="70" width="20" height="6" fill="#E84426"/>
+</svg>

@@ -1,0 +1,510 @@
+/* =====================================================================
+   Anjali Mobile & Electronics: landing page styles
+   ---------------------------------------------------------------------
+   Every colour, font, radius, shadow and easing curve comes from the
+   design system (anjali-mobile-branding.html). Section 1 is a verbatim
+   copy of its tokens, so update both together.
+
+   Mobile-first. Breakpoints match the design system:
+     ≥ 641px  tablet
+     ≥ 1021px desktop
+
+   Contents
+     1. Design tokens            8. Promo tiles
+     2. Layout tokens            9. Products
+     3. Base                    10. Why choose us
+     4. Design-system parts     11. Brands
+     5. Header                  12. Reviews
+     6. Hero carousel           13. Store info
+     7. Categories              14. Footer & floating button
+                                15. Reduced motion & no-JS
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1. Design tokens (copied from the design system, do not change here)
+   --------------------------------------------------------------------- */
+:root{
+  --ember-500:#E84426; --ember-600:#C8361A; --ember-700:#A82D15; --ember-300:#FF7A55; --ink:#111111;
+  --primary:#C8361A; --on-primary:#FFFFFF; --primary-container:#FFE8E0; --on-primary-container:#5C1609; --primary-hover:#A82D15;
+  --reward:#111111; --on-reward:#FFFFFF; --reward-container:#111111; --on-reward-container:#FFFFFF; --reward-accent:#FF6B47; --reward-stripe:#E84426;
+  --background:#FAFAFA; --surface:#FFFFFF; --surface-variant:#F4F4F4; --on-surface:#111111; --on-surface-variant:#525252;
+  --outline:#737373; --outline-variant:#E5E5E5; --inverse-surface:#1F1F1F; --inverse-on-surface:#F5F5F5; --scrim:rgb(17 17 17 / .5);
+  --success:#15803D; --success-c:#DCFCE7; --on-success-c:#14532D;
+  --warning:#A16207; --warning-c:#FEF9C3; --on-warning-c:#713F12;
+  --error:#BE123C; --error-c:#FFE4E6; --on-error-c:#881337;
+  --info:#0369A1; --info-c:#E0F2FE; --on-info-c:#0C4A6E;
+  --wa:#128C7E; --inverse-primary:#FF7A55;
+  --e1:0 1px 2px rgb(17 17 17/.06),0 1px 3px rgb(17 17 17/.10);
+  --e2:0 4px 6px -1px rgb(17 17 17/.10),0 2px 4px -2px rgb(17 17 17/.08);
+  --e3:0 10px 15px -3px rgb(17 17 17/.12),0 4px 6px -4px rgb(17 17 17/.08);
+  --e5:0 25px 50px -12px rgb(17 17 17/.25);
+  --font:"Inter","Noto Sans","Noto Sans Devanagari",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono","Roboto Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --std:cubic-bezier(.2,0,0,1); --decel:cubic-bezier(.05,.7,.1,1);
+  color-scheme:light;
+  box-sizing:border-box;
+}
+/* Dark theme follows the visitor's system setting, unless they pick one
+   with the header toggle (html[data-theme="light|dark"]). The two dark
+   blocks below are identical: keep them in sync. */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --primary:#FF7A55; --on-primary:#1A0703; --primary-container:#3F120A; --on-primary-container:#FFD9CC; --primary-hover:#FFA283;
+    --reward:#FAFAFA; --on-reward:#111111; --reward-container:#1F1F1F; --on-reward-container:#F5F5F5; --reward-stripe:#FF7A55;
+    --background:#0A0A0A; --surface:#141414; --surface-variant:#262626; --on-surface:#F5F5F5; --on-surface-variant:#A3A3A3;
+    --outline:#737373; --outline-variant:#333333; --inverse-surface:#F5F5F5; --inverse-on-surface:#111111; --scrim:rgb(0 0 0/.6);
+    --success:#4ADE80; --success-c:#052E16; --on-success-c:#BBF7D0;
+    --warning:#FACC15; --warning-c:#422006; --on-warning-c:#FEF08A;
+    --error:#FB7185; --error-c:#4C0519; --on-error-c:#FECDD3;
+    --info:#38BDF8; --info-c:#082F49; --on-info-c:#BAE6FD; --wa:#25D366; --inverse-primary:#C8361A;
+    --e1:0 1px 2px rgb(0 0 0/.12),0 1px 3px rgb(0 0 0/.2); --e2:0 4px 6px -1px rgb(0 0 0/.2),0 2px 4px -2px rgb(0 0 0/.16);
+    --e3:0 10px 15px -3px rgb(0 0 0/.24),0 4px 6px -4px rgb(0 0 0/.16); --e5:0 25px 50px -12px rgb(0 0 0/.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --primary:#FF7A55; --on-primary:#1A0703; --primary-container:#3F120A; --on-primary-container:#FFD9CC; --primary-hover:#FFA283;
+  --reward:#FAFAFA; --on-reward:#111111; --reward-container:#1F1F1F; --on-reward-container:#F5F5F5; --reward-stripe:#FF7A55;
+  --background:#0A0A0A; --surface:#141414; --surface-variant:#262626; --on-surface:#F5F5F5; --on-surface-variant:#A3A3A3;
+  --outline:#737373; --outline-variant:#333333; --inverse-surface:#F5F5F5; --inverse-on-surface:#111111; --scrim:rgb(0 0 0/.6);
+  --success:#4ADE80; --success-c:#052E16; --on-success-c:#BBF7D0;
+  --warning:#FACC15; --warning-c:#422006; --on-warning-c:#FEF08A;
+  --error:#FB7185; --error-c:#4C0519; --on-error-c:#FECDD3;
+  --info:#38BDF8; --info-c:#082F49; --on-info-c:#BAE6FD; --wa:#25D366; --inverse-primary:#C8361A;
+  --e1:0 1px 2px rgb(0 0 0/.12),0 1px 3px rgb(0 0 0/.2); --e2:0 4px 6px -1px rgb(0 0 0/.2),0 2px 4px -2px rgb(0 0 0/.16);
+  --e3:0 10px 15px -3px rgb(0 0 0/.24),0 4px 6px -4px rgb(0 0 0/.16); --e5:0 25px 50px -12px rgb(0 0 0/.5);
+  color-scheme:dark;
+}
+
+
+/* ---------------------------------------------------------------------
+   2. Layout tokens
+   These are not new styles. They name values the design system's own
+   components already use (8/12/16/24px radii, 1180px container,
+   56px section spacing, 16/24px gutters).
+   --------------------------------------------------------------------- */
+:root{
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+  --radius-xl:24px;
+  --radius-pill:9999px;
+  --container:1180px;
+  --gutter:16px;
+  --section-gap:56px;
+  /* Translucent tints for content on ink panels (same color-mix technique the design system uses) */
+  --on-ink-12:color-mix(in srgb,var(--on-reward-container) 12%,transparent);
+  --on-ink-6:color-mix(in srgb,var(--on-reward-container) 6%,transparent);
+}
+@media (min-width:641px){ :root{ --gutter:24px; } }
+
+
+/* ---------------------------------------------------------------------
+   3. Base
+   --------------------------------------------------------------------- */
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{
+  margin:0;
+  background:var(--background);
+  color:var(--on-surface);
+  font:400 16px/24px var(--font);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,p,blockquote,figure,dl,dd{margin:0}
+a{color:var(--primary);font-weight:500;text-underline-offset:3px}
+a:hover{color:var(--primary-hover)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+address{font-style:normal}
+.num{font-variant-numeric:tabular-nums}
+
+.plain{list-style:none;margin:0;padding:0}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.section{padding-top:var(--section-gap)}
+main{padding-bottom:80px}
+@media (min-width:641px){ main{padding-bottom:96px} }
+
+/* Hidden icon sprite */
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* Icons: 24px outline, 1.75 stroke, as in the design system */
+.icon{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.icon-wa{color:var(--wa)}
+
+/* Screen-reader only text */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Skip link: visible on keyboard focus only */
+.skip-link.btn{position:absolute;left:16px;top:-80px;z-index:50}
+.skip-link.btn:focus{top:16px}
+
+
+/* ---------------------------------------------------------------------
+   4. Design-system components (buttons, badges, plate, section head,
+      stat, avatar). Copied from the design system.
+   --------------------------------------------------------------------- */
+.btn{--h:48px;font:600 14px/20px var(--font);letter-spacing:.1px;height:var(--h);min-width:var(--h);padding:0 24px;border-radius:var(--radius-pill);border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;position:relative;transition:transform 100ms var(--std),background-color 150ms var(--std);white-space:nowrap;text-decoration:none}
+.btn:active{transform:scale(.98)}
+.btn .icon{width:20px;height:20px}
+.btn-filled{background:var(--primary);color:var(--on-primary)}
+.btn-filled:hover{background:var(--primary-hover);color:var(--on-primary)}
+.btn-tonal{background:var(--primary-container);color:var(--on-primary-container)}
+.btn-tonal:hover{box-shadow:inset 0 0 0 100px rgb(200 54 26/.08);color:var(--on-primary-container)}
+.btn-outlined{background:transparent;color:var(--on-surface);box-shadow:inset 0 0 0 1px var(--outline)}
+.btn-outlined:hover{background:var(--surface-variant);color:var(--on-surface)}
+.btn-full{width:100%}
+.btn-sm{--h:36px;padding:0 14px}
+
+.badge{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 10px;border-radius:var(--radius-pill);font:600 12px/16px var(--font);letter-spacing:.5px;white-space:nowrap}
+.b-success{background:var(--success-c);color:var(--on-success-c)}
+.b-info{background:var(--info-c);color:var(--on-info-c)}
+.b-primary{background:var(--primary-container);color:var(--on-primary-container)}
+.b-neutral{background:var(--surface-variant);color:var(--on-surface-variant)}
+
+/* The logo is a JPEG on white, so it always sits on a white plate */
+.plate{background:#fff;border-radius:var(--radius-sm);padding:4px 8px;display:inline-flex}
+.plate img{height:32px;width:auto}
+@media (min-width:641px){ .plate img{height:40px} }
+
+.sec-head{display:flex;align-items:baseline;gap:8px 16px;flex-wrap:wrap;margin-bottom:24px;border-bottom:1px solid var(--outline-variant);padding-bottom:12px}
+.sec-head h2{font-size:28px;line-height:36px;font-weight:700;letter-spacing:-.25px}
+.sec-head p{color:var(--on-surface-variant);font-size:15px;max-width:62ch}
+.sec-head--flush{border-bottom:0;padding-bottom:0;margin-bottom:8px}
+
+.avatar{width:48px;height:48px;border-radius:50%;background:var(--primary-container);color:var(--on-primary-container);display:grid;place-items:center;font:600 16px var(--font);flex:none}
+
+/* Logo "pixels" motif, used on ink panels */
+.pixels{position:absolute;top:18px;right:18px;width:34px;height:30px}
+.pixels i{position:absolute;display:block}
+.pixels i:nth-child(1){width:8px;height:8px;left:0;top:10px;background:var(--on-reward-container)}
+.pixels i:nth-child(2){width:10px;height:10px;left:12px;top:8px;background:#E84426}
+.pixels i:nth-child(3){width:6px;height:6px;left:24px;top:4px;background:#E84426}
+.pixels i:nth-child(4){width:5px;height:5px;left:30px;top:0;background:var(--on-reward-container)}
+.pixels i:nth-child(5){width:8px;height:8px;left:22px;top:20px;background:var(--on-reward-container)}
+
+
+/* ---------------------------------------------------------------------
+   5. Header
+   --------------------------------------------------------------------- */
+.topbar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--outline-variant);transition:box-shadow 150ms var(--std)}
+.topbar.is-scrolled{box-shadow:var(--e2)}
+.topbar-in{display:flex;align-items:center;gap:8px;min-height:64px;padding-top:8px;padding-bottom:8px}
+.brand{display:inline-flex;margin-right:auto;border-radius:var(--radius-sm)}
+
+/* Mobile menu: a panel that drops below the header */
+.nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--outline-variant);box-shadow:var(--e3);padding:8px var(--gutter) 16px}
+.nav.is-open{display:block}
+.nav ul{display:grid;gap:4px}
+.nav a{display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:var(--radius-sm);font-size:16px;color:var(--on-surface);text-decoration:none}
+.nav a:hover{background:var(--surface-variant);color:var(--on-surface)}
+
+.menu-btn,.theme-btn{width:48px;height:48px;border:0;border-radius:var(--radius-pill);background:transparent;color:var(--on-surface);display:inline-grid;place-items:center;cursor:pointer}
+.menu-btn:hover,.theme-btn:hover{background:var(--surface-variant)}
+
+/* On very small phones the header CTA shows its icon only (label kept for screen readers) */
+@media (max-width:399px){
+  .header-cta{padding:0;width:var(--h)}
+  .header-cta-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+
+@media (min-width:1021px){
+  .topbar-in{gap:16px}
+  .nav{display:block;position:static;background:none;border:0;box-shadow:none;padding:0}
+  .nav ul{display:flex;gap:4px}
+  .nav a{min-height:36px;padding:6px 12px;border-radius:var(--radius-pill);font-size:14px;color:var(--on-surface-variant)}
+  .nav a:hover{color:var(--on-surface)}
+  .menu-btn{display:none}
+}
+
+
+/* ---------------------------------------------------------------------
+   6. Hero carousel
+   Mobile: image on top, text below. Tablet and up: text over the image
+   with an ink gradient for legibility.
+   --------------------------------------------------------------------- */
+.hero{padding-top:16px}
+@media (min-width:641px){ .hero{padding-top:24px} }
+
+.carousel{position:relative;background:var(--reward-container);color:var(--on-reward-container);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--e2)}
+.carousel-viewport{overflow:hidden}
+.carousel-track{display:flex;transition:transform 600ms var(--std);touch-action:pan-y}
+.carousel-track.no-anim{transition:none}
+
+.slide{flex:0 0 100%;min-width:0;position:relative;display:flex;flex-direction:column}
+.slide-media{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:80% 50%;user-select:none;-webkit-user-drag:none}
+.slide-copy{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:20px 20px 8px}
+.slide-title{font:700 28px/36px var(--font);letter-spacing:-.25px;max-width:18ch}
+.slide-text{opacity:.85;max-width:46ch}
+.slide-copy .btn{margin-top:4px}
+
+.carousel-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px 20px}
+.carousel-dots{display:flex;align-items:center;gap:4px}
+.carousel-buttons{display:flex;gap:8px}
+
+/* Dot: 24px tap target, 8px visual; the active one stretches into an ember bar */
+.dot{width:24px;height:24px;padding:0;border:0;background:none;border-radius:var(--radius-pill);display:grid;place-items:center;cursor:pointer}
+.dot::before{content:"";width:8px;height:8px;border-radius:var(--radius-pill);background:color-mix(in srgb,var(--on-reward-container) 40%,transparent);transition:width 300ms var(--std),background-color 300ms var(--std)}
+.dot:hover::before{background:var(--on-reward-container)}
+.dot[aria-current="true"]::before{width:24px;background:var(--reward-stripe)}
+
+/* Round icon buttons on ink */
+.icon-btn{width:48px;height:48px;border:0;border-radius:var(--radius-pill);background:var(--reward-container);color:var(--on-reward-container);box-shadow:inset 0 0 0 1px var(--outline);display:inline-grid;place-items:center;cursor:pointer;transition:background-color 150ms var(--std),transform 100ms var(--std)}
+.icon-btn:hover{background:color-mix(in srgb,var(--on-reward-container) 12%,var(--reward-container))}
+.icon-btn:active{transform:scale(.98)}
+
+/* Tablet: still stacked, with a wider image band */
+@media (min-width:641px){
+  .slide-media{aspect-ratio:2/1;object-position:85% 50%}
+  .slide-copy{padding:32px 40px 8px}
+  .slide-title{font-size:40px;line-height:48px;letter-spacing:-.5px;max-width:20ch}
+  .carousel-controls{padding:16px 40px 32px}
+}
+/* Desktop: text over the image */
+@media (min-width:1021px){
+  .slide{min-height:500px;justify-content:center}
+  .slide-media{position:absolute;inset:0;height:100%;aspect-ratio:auto;object-position:center}
+  .slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--reward-container) 0%,color-mix(in srgb,var(--reward-container) 75%,transparent) 42%,transparent 72%)}
+  .slide-copy{position:relative;z-index:2;max-width:680px;padding:56px 64px 112px}
+  .slide-title{font-size:48px;line-height:56px;max-width:18ch}
+  .carousel-controls{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 64px 40px}
+}
+
+
+/* ---------------------------------------------------------------------
+   7. Categories
+   --------------------------------------------------------------------- */
+.cat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.cat-card{display:flex;align-items:center;gap:12px;height:100%;padding:12px;border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--outline-variant);color:var(--on-surface);text-decoration:none;transition:box-shadow 150ms var(--std),transform 150ms var(--std)}
+.cat-card:hover{color:var(--on-surface);box-shadow:var(--e2);transform:translateY(-2px)}
+.cat-icon{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--primary-container);color:var(--on-primary-container)}
+.cat-text{display:flex;flex-direction:column;min-width:0}
+.cat-name{font:600 14px/20px var(--font)}
+.cat-sub{display:none;font:400 12px/16px var(--font);color:var(--on-surface-variant)}
+
+@media (min-width:641px){
+  .cat-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .cat-card{flex-direction:column;align-items:flex-start;padding:16px}
+  .cat-sub{display:block;margin-top:2px}
+}
+@media (min-width:1021px){
+  .cat-grid{gap:24px}
+  .cat-card{flex-direction:row;align-items:center;padding:20px}
+  .cat-icon{width:56px;height:56px}
+  .cat-name{font-size:16px;line-height:24px}
+}
+
+
+/* ---------------------------------------------------------------------
+   8. Promo tiles
+   --------------------------------------------------------------------- */
+.promo-grid{display:grid;gap:16px}
+.promo{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:24px;border-radius:var(--radius-lg)}
+.promo-title{font:600 24px/32px var(--font);max-width:20ch}
+.promo p{max-width:44ch}
+.promo .btn{margin-top:8px}
+.promo-tonal{background:var(--primary-container);color:var(--on-primary-container)}
+.promo-ink{background:var(--reward-container);color:var(--on-reward-container);border:1px solid var(--outline-variant)}
+.promo-ink p{opacity:.85}
+.promo-ink .promo-title{padding-right:40px} /* keep clear of the pixel motif */
+
+@media (min-width:641px){
+  .promo-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .promo{padding:32px}
+}
+
+
+/* ---------------------------------------------------------------------
+   9. Products (no prices)
+   --------------------------------------------------------------------- */
+/* Filter tabs, styled like the design system's tabs */
+.filter-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--outline-variant);margin-bottom:24px}
+.filter-tabs::-webkit-scrollbar{display:none}
+.filter-tabs button{font:600 14px/20px var(--font);background:none;border:0;padding:14px 16px;color:var(--on-surface-variant);border-bottom:3px solid transparent;cursor:pointer;margin-bottom:-1px;white-space:nowrap;min-height:48px}
+.filter-tabs button:hover{color:var(--on-surface)}
+.filter-tabs button[aria-pressed="true"]{color:var(--primary);border-bottom-color:var(--primary)}
+
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md);overflow:hidden;transition:box-shadow 150ms var(--std),transform 150ms var(--std)}
+.product-card:hover{box-shadow:var(--e3);transform:translateY(-2px)}
+.product-card[hidden]{display:none}
+/* White plate behind product photos, the same treatment the logo gets */
+.product-media{background:#fff;border-bottom:1px solid var(--outline-variant)}
+.product-media img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.product-body{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:12px}
+.product-name{font:600 14px/20px var(--font)}
+/* Let the long button label wrap on narrow two-column phones */
+.product-body .btn{margin-top:auto;height:auto;min-height:var(--h);padding:8px 12px;white-space:normal;text-align:center}
+
+@media (min-width:641px){
+  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .product-body{padding:16px 12px;gap:10px}
+  .product-name{font-size:16px;line-height:24px}
+}
+@media (min-width:1021px){
+  .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+}
+
+
+/* ---------------------------------------------------------------------
+   10. Why choose us
+   --------------------------------------------------------------------- */
+.why-panel{position:relative;overflow:hidden;background:var(--reward-container);color:var(--on-reward-container);border:1px solid var(--outline-variant);border-radius:var(--radius-lg);padding:32px 20px;box-shadow:var(--e1)}
+.why-intro{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.why-intro h2{font:700 28px/36px var(--font);letter-spacing:-.25px;max-width:20ch}
+.why-intro p{opacity:.85;max-width:52ch}
+
+.trust-grid{display:grid;gap:12px;margin-top:24px}
+.trust-item{padding:20px;border-radius:var(--radius-md);background:var(--on-ink-6);border:1px solid var(--on-ink-12)}
+.trust-icon{width:44px;height:44px;border-radius:var(--radius-sm);display:grid;place-items:center;background:var(--on-ink-12);color:var(--reward-accent);margin-bottom:12px}
+.trust-item h3{font:600 18px/28px var(--font)}
+.trust-item p{font-size:14px;line-height:20px;opacity:.85;margin-top:4px}
+
+/* Stat tiles: label + value side by side on phones, stacked tiles above */
+.stats{display:grid;gap:12px;margin-top:16px}
+.stat{display:flex;align-items:baseline;justify-content:space-between;gap:12px;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md);padding:16px}
+.stat dt{font:600 12px/16px var(--font);letter-spacing:.5px;color:var(--on-surface-variant)}
+.stat dd{font:700 24px/32px var(--font);letter-spacing:-.25px;color:var(--primary)}
+
+@media (min-width:641px){
+  .why-panel{padding:40px}
+  .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:32px}
+  .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+  .stat{flex-direction:column;justify-content:flex-start;gap:4px}
+  .stat dd{font-size:32px;line-height:40px}
+}
+@media (min-width:1021px){
+  .why-panel{padding:56px}
+  .why-intro h2{font-size:32px;line-height:40px}
+  .trust-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+  .stats{gap:24px}
+}
+
+
+/* ---------------------------------------------------------------------
+   11. Brands (plain text wordmarks)
+   --------------------------------------------------------------------- */
+.brand-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.brand-grid li{display:grid;place-items:center;min-height:64px;padding:8px;text-align:center;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md);font:600 16px/24px var(--font);letter-spacing:.1px;color:var(--on-surface-variant);transition:color 150ms var(--std),box-shadow 150ms var(--std)}
+.brand-grid li:hover{color:var(--on-surface);box-shadow:var(--e1)}
+
+@media (min-width:641px){
+  .brand-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .brand-grid li{min-height:72px;font-size:18px;line-height:28px}
+}
+@media (min-width:1021px){
+  .brand-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+
+
+/* ---------------------------------------------------------------------
+   12. Reviews
+   Phones: swipeable row with scroll-snap. Tablet and up: grid.
+   --------------------------------------------------------------------- */
+.review-list{display:grid;grid-auto-flow:column;grid-auto-columns:85%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--gutter);margin:0 calc(var(--gutter) * -1);padding:4px var(--gutter) 12px;border-radius:var(--radius-md)}
+.review-card{scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md);padding:20px}
+.stars{display:flex;gap:2px;color:var(--ember-500)}
+.stars .icon{width:20px;height:20px;fill:currentColor;stroke-width:1}
+.stars .star-off{color:var(--outline-variant)}
+.review-card blockquote{flex:1}
+.reviewer{display:flex;align-items:center;gap:12px}
+.reviewer b{display:block;font:600 14px/20px var(--font)}
+.reviewer small{display:block;font-size:12px;line-height:16px;color:var(--on-surface-variant)}
+
+@media (min-width:641px){
+  .review-list{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;margin:0;padding:0;gap:16px}
+}
+@media (min-width:1021px){
+  .review-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .review-card{padding:24px}
+}
+
+
+/* ---------------------------------------------------------------------
+   13. Store info
+   --------------------------------------------------------------------- */
+.store-grid{display:grid;gap:16px}
+.map-card,.contact-card{background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-lg);overflow:hidden}
+.map-card{display:flex;flex-direction:column}
+
+.map-frame{position:relative;aspect-ratio:4/3;background:var(--surface-variant)}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* Placeholder: a faint street grid with a pin */
+.map-placeholder{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:4px;padding:24px;text-align:center;
+  background-image:linear-gradient(var(--outline-variant) 1px,transparent 1px),linear-gradient(90deg,var(--outline-variant) 1px,transparent 1px);
+  background-size:32px 32px;background-position:center}
+.map-pin{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--primary);color:var(--on-primary);box-shadow:var(--e3);margin-bottom:8px}
+.map-title{font:600 18px/28px var(--font)}
+.map-note{font-size:14px;line-height:20px;color:var(--on-surface-variant)}
+.map-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 16px;padding:16px 20px;border-top:1px solid var(--outline-variant)}
+.map-address{font-size:14px;line-height:20px;color:var(--on-surface-variant);flex:1 1 220px}
+
+.contact-card{padding:24px 20px}
+.contact-title{font:600 20px/28px var(--font);margin-bottom:8px}
+.contact-list > li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--outline-variant)}
+.contact-icon{width:44px;height:44px;border-radius:var(--radius-sm);display:grid;place-items:center;background:var(--primary-container);color:var(--on-primary-container)}
+.contact-label{display:block;font:600 12px/16px var(--font);letter-spacing:.5px;color:var(--on-surface-variant);margin-bottom:2px}
+.contact-value{font-size:16px;line-height:24px}
+a.contact-value{font-weight:600}
+.hours li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 12px;font-size:14px;line-height:22px}
+.hours li span:last-child{font-variant-numeric:tabular-nums}
+.contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.contact-actions .btn{flex:1 1 180px}
+
+@media (min-width:641px){
+  .map-frame{aspect-ratio:16/10}
+  .contact-card{padding:28px}
+}
+@media (min-width:1021px){
+  .store-grid{grid-template-columns:1.25fr 1fr;gap:24px}
+  .map-frame{aspect-ratio:auto;flex:1;min-height:360px}
+}
+
+
+/* ---------------------------------------------------------------------
+   14. Footer & floating WhatsApp button
+   --------------------------------------------------------------------- */
+.site-footer{background:var(--reward-container);color:var(--on-reward-container);padding-top:48px}
+.footer-grid{display:grid;gap:32px}
+.footer-brand p{margin-top:16px;font-size:14px;line-height:20px;opacity:.85;max-width:40ch}
+.footer-title{font:600 14px/20px var(--font);letter-spacing:.5px;margin-bottom:12px}
+.footer-links{display:grid;gap:4px;font-size:14px;line-height:20px}
+.footer-links a,.footer-links address{color:color-mix(in srgb,var(--on-reward-container) 80%,transparent);font-weight:400;text-decoration:none;display:inline-block;padding:4px 0}
+.footer-links a:hover{color:var(--on-reward-container);text-decoration:underline}
+.site-footer :focus-visible{outline-color:var(--reward-accent)}
+
+.footer-bottom{display:flex;flex-direction:column;gap:4px;margin-top:40px;padding:20px 72px calc(24px + env(safe-area-inset-bottom,0px)) 0;border-top:1px solid var(--on-ink-12);font-size:13px;line-height:20px;color:color-mix(in srgb,var(--on-reward-container) 80%,transparent)}
+.credit strong{color:var(--on-reward-container);font-weight:600}
+
+@media (min-width:641px){
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .footer-bottom{flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-right:0}
+}
+@media (min-width:1021px){
+  .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:48px}
+}
+
+.wa-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:15;width:56px;height:56px;border-radius:var(--radius-pill);display:grid;place-items:center;background:var(--surface);color:var(--wa);border:1px solid var(--outline-variant);box-shadow:var(--e3);transition:transform 150ms var(--std),box-shadow 150ms var(--std)}
+.wa-fab .icon{width:28px;height:28px}
+.wa-fab:hover{color:var(--wa);transform:translateY(-2px);box-shadow:var(--e5)}
+@media (min-width:641px){ .wa-fab{right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px))} }
+
+
+/* ---------------------------------------------------------------------
+   15. Reduced motion & no-JS fallbacks
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important}
+  .carousel-track{transition:none}
+  .cat-card:hover,.product-card:hover,.wa-fab:hover{transform:none}
+}
+
+/* Without JavaScript the hero becomes a swipeable row and the controls hide */
+.no-js .carousel-viewport{overflow-x:auto;scroll-snap-type:x mandatory}
+.no-js .slide{scroll-snap-align:start}
+.no-js .carousel-controls{display:none}
+.no-js .theme-btn{display:none}
+.no-js .slide-copy{padding-bottom:48px}

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <!-- PLACEHOLDER banner 2: chargers & power. Replace with a real photo (1600×900 or wider, subject on the right). -->
+  <defs>
+    <radialGradient id="g" cx="72%" cy="50%" r="55%">
+      <stop offset="0" stop-color="#262626"/>
+      <stop offset="1" stop-color="#111111"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <!-- phone -->
+  <g transform="translate(960 190)">
+    <rect width="250" height="500" rx="40" fill="#1F1F1F" stroke="#525252" stroke-width="8"/>
+    <rect x="98" y="22" width="54" height="10" rx="5" fill="#525252"/>
+    <!-- battery on screen -->
+    <rect x="70" y="170" width="110" height="180" rx="16" fill="none" stroke="#F5F5F5" stroke-width="8"/>
+    <rect x="105" y="152" width="40" height="18" rx="5" fill="#F5F5F5"/>
+    <rect x="84" y="238" width="82" height="98" rx="8" fill="#E84426"/>
+    <path d="M131 190l-28 52h26l-14 46 40-62h-26z" fill="#F5F5F5"/>
+  </g>
+  <!-- cable -->
+  <path d="M1085 690c0 90 70 120 150 120s160-40 160-150V560" fill="none" stroke="#F4F4F4" stroke-width="16" stroke-linecap="round"/>
+  <!-- charger brick -->
+  <g transform="translate(1300 330)">
+    <rect width="200" height="230" rx="34" fill="#F4F4F4"/>
+    <rect x="70" y="190" width="60" height="18" rx="9" fill="#111111"/>
+    <circle cx="100" cy="64" r="10" fill="#E84426"/>
+    <rect x="62" y="-46" width="20" height="50" rx="10" fill="#737373"/>
+    <rect x="118" y="-46" width="20" height="50" rx="10" fill="#737373"/>
+  </g>
+  <g>
+    <rect x="1420" y="96" width="22" height="22" fill="#E84426"/>
+    <rect x="1456" y="76" width="14" height="14" fill="#E84426"/>
+    <rect x="1392" y="128" width="16" height="16" fill="#F5F5F5"/>
+  </g>
+</svg>

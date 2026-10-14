@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- PLACEHOLDER product image: Smart Watch. Replace with a real photo. -->
+  <rect width="400" height="400" fill="#F4F4F4"/>
+  <rect x="160" y="30" width="80" height="340" rx="24" fill="#262626"/>
+  <rect x="120" y="120" width="160" height="170" rx="40" fill="#111111"/>
+  <rect x="136" y="136" width="128" height="138" rx="28" fill="#1F1F1F"/>
+  <circle cx="200" cy="205" r="44" fill="none" stroke="#E84426" stroke-width="10" stroke-dasharray="200 80" stroke-linecap="round"/>
+  <rect x="280" y="180" width="12" height="40" rx="5" fill="#525252"/>
+</svg>

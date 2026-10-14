@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- PLACEHOLDER product image: Wireless Earbuds. Replace with a real photo. -->
+  <rect width="400" height="400" fill="#F4F4F4"/>
+  <rect x="110" y="210" width="180" height="130" rx="62" fill="#111111"/>
+  <path d="M116 260h168" stroke="#262626" stroke-width="5"/>
+  <circle cx="200" cy="300" r="6" fill="#E84426"/>
+  <g fill="#111111"><g transform="translate(150 120) rotate(-15)"><ellipse rx="32" ry="38"/><rect x="-12" y="20" width="24" height="80" rx="12"/></g>
+  <g transform="translate(250 120) rotate(15)"><ellipse rx="32" ry="38"/><rect x="-12" y="20" width="24" height="80" rx="12"/></g></g>
+</svg>

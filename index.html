@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en-IN" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Anjali Mobile &amp; Electronics | Phone Cases, Chargers &amp; Accessories</title>
+  <meta name="description" content="Anjali Mobile &amp; Electronics is your neighbourhood store for phone cases, screen guards, chargers, earphones, power banks and smart watches. Message us on WhatsApp or visit the store.">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Swap the no-js class and apply a saved light/dark choice as early as possible, so neither flashes -->
+  <script>
+    document.documentElement.className = 'js';
+    try {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    } catch (e) {}
+  </script>
+
+  <!-- Fonts: Inter, as specified by the design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       ICON SPRITE
+       Hand-drawn 24px outline icons (1.75 stroke, set in CSS).
+       Use with: <svg class="icon"><use href="#i-name"/></svg>
+       ============================================================ -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-directions" viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.1A8.5 8.5 0 1 1 9.9 3.5a6.6 6.6 0 0 0 10.6 10.6z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.9 6.6 1-4.8 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.8-4.6 6.6-1z"/></symbol>
+    <!-- category icons -->
+    <symbol id="i-case" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><rect x="8.5" y="4.5" width="4" height="4.5" rx="1"/></symbol>
+    <symbol id="i-guard" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M9 10l4-4M9 15l6-6"/></symbol>
+    <symbol id="i-charger" viewBox="0 0 24 24"><path d="M9 3v4M15 3v4"/><rect x="5" y="7" width="14" height="13" rx="2.5"/><path d="M12.5 10l-2 3.5h3l-2 3.5"/></symbol>
+    <symbol id="i-cable" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="6" rx="1.5"/><path d="M12 8v5a4 4 0 0 0 4 4h1a2 2 0 0 1 2 2v3"/></symbol>
+    <symbol id="i-powerbank" viewBox="0 0 24 24"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10v4"/><path d="M11.5 9l-2 3h3l-2 3"/></symbol>
+    <symbol id="i-headphones" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><path d="M4 15h3v6H5a1 1 0 0 1-1-1zM20 15h-3v6h2a1 1 0 0 0 1-1z"/></symbol>
+    <symbol id="i-watch" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6l1-4h4l1 4M9 18l1 4h4l1-4M12 10v2l1.5 1.5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></symbol>
+    <!-- trust icons -->
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></symbol>
+  </svg>
+
+  <a class="skip-link btn btn-filled" href="#main">Skip to content</a>
+
+  <!-- ============================================================
+       1. HEADER
+       ============================================================ -->
+  <header class="topbar" id="top">
+    <div class="container topbar-in">
+      <a class="brand" href="#top" aria-label="Anjali Mobile &amp; Electronics, back to top">
+        <span class="plate"><img src="assets/logo.jpg" alt="Anjali Mobile &amp; Electronics" width="594" height="220"></span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="plain">
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#why">Why us</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#store">Visit store</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-btn" type="button" aria-label="Switch to dark theme">
+        <svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+
+      <a class="btn btn-filled btn-sm header-cta" data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+        <span class="header-cta-label">WhatsApp Us</span>
+      </a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1 class="sr-only">Anjali Mobile &amp; Electronics: phone cases, chargers, earphones and mobile accessories</h1>
+
+    <!-- ============================================================
+         2. HERO CAROUSEL
+         Banner images live in /assets/banners/. To swap one, replace the
+         file (or change the src) and keep alt="" because the text is in HTML.
+         ============================================================ -->
+    <section class="hero" aria-label="Highlights">
+      <div class="container">
+        <div class="carousel" id="hero-carousel" aria-roledescription="carousel" aria-label="Store highlights">
+          <div class="carousel-viewport">
+            <div class="carousel-track" aria-live="off">
+
+              <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+                <img class="slide-media" src="assets/banners/banner-1.svg" alt="" width="1600" height="900" fetchpriority="high">
+                <div class="slide-copy">
+                  <span class="badge b-primary">New designs every week</span>
+                  <h2 class="slide-title">Cases that fit your phone and your style</h2>
+                  <p class="slide-text">Slim, rugged, clear and designer covers for the latest Samsung, Apple, vivo, OPPO and realme models.</p>
+                  <a class="btn btn-filled" href="#products">Explore Collection</a>
+                </div>
+              </div>
+
+              <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+                <img class="slide-media" src="assets/banners/banner-2.svg" alt="" width="1600" height="900" loading="lazy">
+                <div class="slide-copy">
+                  <span class="badge b-primary">Safe, fast charging</span>
+                  <h2 class="slide-title">Chargers your battery will thank you for</h2>
+                  <p class="slide-text">Genuine fast chargers, braided cables and power banks matched to your phone model.</p>
+                  <a class="btn btn-filled" data-wa="Hi Anjali Mobile, I'm looking for a charger for my phone. My model is: " href="https://wa.me/910000000000" target="_blank" rel="noopener">
+                    <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Shop on WhatsApp
+                  </a>
+                </div>
+              </div>
+
+              <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+                <img class="slide-media" src="assets/banners/banner-3.svg" alt="" width="1600" height="900" loading="lazy">
+                <div class="slide-copy">
+                  <span class="badge b-primary">Try before you buy</span>
+                  <h2 class="slide-title">Sound that goes wherever you go</h2>
+                  <p class="slide-text">Wireless earbuds, neckbands and speakers from boAt, Noise, Portronics and more. Listen at the counter first.</p>
+                  <a class="btn btn-filled" href="#products">Explore Collection</a>
+                </div>
+              </div>
+
+              <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+                <img class="slide-media" src="assets/banners/banner-4.svg" alt="" width="1600" height="900" loading="lazy">
+                <div class="slide-copy">
+                  <span class="badge b-primary">Your neighbourhood store</span>
+                  <h2 class="slide-title">Real advice from people who know phones</h2>
+                  <p class="slide-text">Try cases on your own phone, get your screen guard fitted, and leave with exactly what you need.</p>
+                  <a class="btn btn-filled" href="#store">Visit Our Store</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Controls: dots are generated by script.js from the number of slides -->
+          <div class="carousel-controls">
+            <div class="carousel-dots" role="group" aria-label="Choose a slide"></div>
+            <div class="carousel-buttons">
+              <button class="icon-btn" type="button" data-carousel="prev" aria-label="Previous slide">
+                <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+              </button>
+              <button class="icon-btn" type="button" data-carousel="next" aria-label="Next slide">
+                <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. CATEGORIES
+         data-filter-link sets the product filter below when clicked.
+         ============================================================ -->
+    <section class="section" id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="sec-head">
+          <h2 id="categories-title">Shop by category</h2>
+          <p>Everything your phone needs, from everyday covers to fast chargers.</p>
+        </div>
+
+        <ul class="cat-grid plain">
+          <li><a class="cat-card" href="#products" data-filter-link="protection">
+            <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-case"/></svg></span>
+            <span class="cat-text"><span class="cat-name">Phone Cases</span><span class="cat-sub">Slim, rugged and clear</span></span>
+          </a></li>
+          <li><a class="cat-card" href="#products" data-filter-link="protection">
+            <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-guard"/></svg></span>
+            <span class="cat-text"><span class="cat-name">Screen Guards</span><span class="cat-sub">Tempered and privacy glass</span></span>
+          </a></li>
+          <li><a class="cat-card" href="#products" data-filter-link="charging">
+            <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-charger"/></svg></span>
+            <span class="cat-text"><span class="cat-name">Chargers</span><span class="cat-sub">Fast and wall adapters</span></span>
+          </a></li>
+          <li><a class="cat-card" href="#products" data-filter-link="charging">
+            <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-cable"/></svg></span>
+            <span class="cat-text"><span class="cat-name">Cables</span><span class="cat-sub">Type-C, Lightning, micro USB</span></span>
+          </a></li>
+          <li><a class="cat-card" href="#products" data-filter-link="charging">
+            <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-powerbank"/></svg></span>
+            <span class="cat-text"><span class="cat-name">Power Banks</span><span class="cat-sub">Pocket to travel size</span></span>
+          </a></li>
+          <li><a class="cat-card" href="#products" data-filter-link="audio">
+            <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-headphones"/></svg></span>
+            <span class="cat-text"><span class="cat-name">Earphones</span><span class="cat-sub">Earbuds and neckbands</span></span>
+          </a></li>
+          <li><a class="cat-card" href="#products" data-filter-link="audio">
+            <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-watch"/></svg></span>
+            <span class="cat-text"><span class="cat-name">Smart Watches</span><span class="cat-sub">Fitness and calling</span></span>
+          </a></li>
+          <li><a class="cat-card" href="#products" data-filter-link="all">
+            <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span>
+            <span class="cat-text"><span class="cat-name">Accessories</span><span class="cat-sub">Holders, tripods and more</span></span>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Promo tiles (two feature banners, like the reference flow)
+         ============================================================ -->
+    <section class="section" aria-label="In-store services">
+      <div class="container promo-grid">
+        <div class="promo promo-tonal">
+          <h2 class="promo-title">Screen guard fitted while you wait</h2>
+          <p>Pick your glass and we apply it bubble-free at the counter in a few minutes.</p>
+          <a class="btn btn-filled" href="#store">Visit Our Store</a>
+        </div>
+        <div class="promo promo-ink">
+          <div class="pixels" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h2 class="promo-title">New stock arrives every week</h2>
+          <p>Tell us your phone model on WhatsApp and we'll share what's in store for it.</p>
+          <a class="btn btn-tonal" data-wa="Hi Anjali Mobile, what's new in stock for my phone? My model is: " href="https://wa.me/910000000000" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Ask on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. FEATURED PRODUCTS (no prices, by design)
+         To add a product, copy one <li class="product-card">, change the
+         image, name, tag and data-wa-product. data-category must be one of:
+         protection | charging | audio
+         ============================================================ -->
+    <section class="section" id="products" aria-labelledby="products-title">
+      <div class="container">
+        <div class="sec-head sec-head--flush">
+          <h2 id="products-title">Popular at our counter</h2>
+          <p>Our customers' favourites this month. Message us to check stock for your model.</p>
+        </div>
+
+        <div class="filter-tabs" role="group" aria-label="Filter products">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="protection" aria-pressed="false">Cases &amp; Guards</button>
+          <button type="button" data-filter="charging" aria-pressed="false">Charging</button>
+          <button type="button" data-filter="audio" aria-pressed="false">Audio &amp; Wearables</button>
+        </div>
+        <p class="sr-only" id="product-status" aria-live="polite"></p>
+
+        <ul class="product-grid plain" id="product-grid">
+          <li class="product-card" data-category="protection">
+            <div class="product-media"><img src="assets/products/clear-case.svg" alt="Transparent shockproof phone case with raised corners" width="400" height="400" loading="lazy"></div>
+            <div class="product-body">
+              <span class="badge b-primary">Bestseller</span>
+              <h3 class="product-name">Shockproof Clear Case</h3>
+              <a class="btn btn-outlined btn-full" data-wa-product="Shockproof Clear Case" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Shockproof Clear Case">
+                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="product-card" data-category="charging">
+            <div class="product-media"><img src="assets/products/fast-charger.svg" alt="White Type-C fast charging wall adapter" width="400" height="400" loading="lazy"></div>
+            <div class="product-body">
+              <span class="badge b-success">Genuine</span>
+              <h3 class="product-name">Type-C Fast Charger</h3>
+              <a class="btn btn-outlined btn-full" data-wa-product="Type-C Fast Charger" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Type-C Fast Charger">
+                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="product-card" data-category="audio">
+            <div class="product-media"><img src="assets/products/wireless-earbuds.svg" alt="Black wireless earbuds with charging case" width="400" height="400" loading="lazy"></div>
+            <div class="product-body">
+              <span class="badge b-info">New arrival</span>
+              <h3 class="product-name">Wireless Earbuds</h3>
+              <a class="btn btn-outlined btn-full" data-wa-product="Wireless Earbuds" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Wireless Earbuds">
+                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="product-card" data-category="protection">
+            <div class="product-media"><img src="assets/products/tempered-glass.svg" alt="9H tempered glass screen guard over a phone" width="400" height="400" loading="lazy"></div>
+            <div class="product-body">
+              <span class="badge b-neutral">Fitted in store</span>
+              <h3 class="product-name">9H Tempered Glass</h3>
+              <a class="btn btn-outlined btn-full" data-wa-product="9H Tempered Glass" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the 9H Tempered Glass">
+                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="product-card" data-category="charging">
+            <div class="product-media"><img src="assets/products/power-bank.svg" alt="Black 10000 mAh power bank with charge indicator lights" width="400" height="400" loading="lazy"></div>
+            <div class="product-body">
+              <span class="badge b-primary">Travel pick</span>
+              <h3 class="product-name">10000 mAh Power Bank</h3>
+              <a class="btn btn-outlined btn-full" data-wa-product="10000 mAh Power Bank" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the 10000 mAh Power Bank">
+                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="product-card" data-category="charging">
+            <div class="product-media"><img src="assets/products/braided-cable.svg" alt="Braided Type-C charging cable" width="400" height="400" loading="lazy"></div>
+            <div class="product-body">
+              <span class="badge b-neutral">1.5 m braided</span>
+              <h3 class="product-name">Braided Type-C Cable</h3>
+              <a class="btn btn-outlined btn-full" data-wa-product="Braided Type-C Cable" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Braided Type-C Cable">
+                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="product-card" data-category="audio">
+            <div class="product-media"><img src="assets/products/smart-watch.svg" alt="Black smart watch with fitness ring on screen" width="400" height="400" loading="lazy"></div>
+            <div class="product-body">
+              <span class="badge b-info">Trending</span>
+              <h3 class="product-name">Calling Smart Watch</h3>
+              <a class="btn btn-outlined btn-full" data-wa-product="Calling Smart Watch" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Calling Smart Watch">
+                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
+              </a>
+            </div>
+          </li>
+          <li class="product-card" data-category="audio">
+            <div class="product-media"><img src="assets/products/neckband.svg" alt="Black Bluetooth neckband earphones" width="400" height="400" loading="lazy"></div>
+            <div class="product-body">
+              <span class="badge b-success">Long battery</span>
+              <h3 class="product-name">Bluetooth Neckband</h3>
+              <a class="btn btn-outlined btn-full" data-wa-product="Bluetooth Neckband" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Bluetooth Neckband">
+                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. WHY CHOOSE ANJALI MOBILE
+         ============================================================ -->
+    <section class="section" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why-panel">
+          <div class="pixels" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="why-intro">
+            <span class="badge b-primary">Why Anjali Mobile</span>
+            <h2 id="why-title">A local store you can trust with your phone</h2>
+            <p>We're not a faceless website. We're the shop down the road, and we want you to come back.</p>
+          </div>
+          <ul class="trust-grid plain">
+            <li class="trust-item">
+              <span class="trust-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+              <h3>Genuine products</h3>
+              <p>Original, quality-checked accessories from brands we trust. No duplicates on our shelves.</p>
+            </li>
+            <li class="trust-item">
+              <span class="trust-icon"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg></span>
+              <h3>Fitted at the counter</h3>
+              <p>We apply screen guards and fit cases for you, so you walk out ready to go.</p>
+            </li>
+            <li class="trust-item">
+              <span class="trust-icon"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg></span>
+              <h3>Easy warranty help</h3>
+              <p>Faulty item? Bring it back with your bill and we'll sort it out under warranty.</p>
+            </li>
+            <li class="trust-item">
+              <span class="trust-icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+              <h3>Quick replies on WhatsApp</h3>
+              <p>Send your phone model and we'll tell you what's in stock before you visit.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Numbers come from STORE.stats in js/script.js -->
+        <dl class="stats">
+          <div class="stat"><dt>Years in the neighbourhood</dt><dd class="num" data-store="stats.years">10+</dd></div>
+          <div class="stat"><dt>Happy customers</dt><dd class="num" data-store="stats.customers">25,000+</dd></div>
+          <div class="stat"><dt>Products in store</dt><dd class="num" data-store="stats.products">1,000+</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. BRANDS (plain text only, no logo images)
+         ============================================================ -->
+    <section class="section" id="brands" aria-labelledby="brands-title">
+      <div class="container">
+        <div class="sec-head">
+          <h2 id="brands-title">Brands at our counter</h2>
+          <p>Cases and guards for every popular phone, plus accessories from names you know.</p>
+        </div>
+        <ul class="brand-grid plain">
+          <li>Samsung</li>
+          <li>Apple</li>
+          <li>OnePlus</li>
+          <li>Xiaomi</li>
+          <li>realme</li>
+          <li>vivo</li>
+          <li>OPPO</li>
+          <li>Motorola</li>
+          <li>boAt</li>
+          <li>Portronics</li>
+          <li>Ambrane</li>
+          <li>Noise</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. CUSTOMER REVIEWS
+         ============================================================ -->
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="sec-head">
+          <h2 id="reviews-title">What our customers say</h2>
+          <p>Kind words from people who shop with us.</p>
+        </div>
+
+        <ul class="review-list plain" tabindex="0" aria-label="Customer reviews">
+          <li class="review-card">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5">
+              <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+            </div>
+            <blockquote><p>Got a back cover and tempered glass for my Galaxy A55. They fitted the glass in front of me with no bubbles at all. Very polite staff.</p></blockquote>
+            <div class="reviewer"><span class="avatar" aria-hidden="true">PS</span><div><b>Priya S.</b><small>Case &amp; screen guard</small></div></div>
+          </li>
+          <li class="review-card">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5">
+              <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+            </div>
+            <blockquote><p>I messaged on WhatsApp to check if they had a fast charger for my iPhone 13. They replied in minutes and kept one aside for me.</p></blockquote>
+            <div class="reviewer"><span class="avatar" aria-hidden="true">RM</span><div><b>Rahul M.</b><small>Fast charger</small></div></div>
+          </li>
+          <li class="review-card">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5">
+              <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+            </div>
+            <blockquote><p>Tried two pairs of earbuds at the counter before buying. The sound is great and they explained the warranty clearly.</p></blockquote>
+            <div class="reviewer"><span class="avatar" aria-hidden="true">FK</span><div><b>Farhan K.</b><small>Wireless earbuds</small></div></div>
+          </li>
+          <li class="review-card">
+            <div class="stars" role="img" aria-label="Rated 4 out of 5">
+              <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon star-off"><use href="#i-star"/></svg>
+            </div>
+            <blockquote><p>Good collection of designer covers for the realme 12 Pro. I took my time choosing and nobody rushed me.</p></blockquote>
+            <div class="reviewer"><span class="avatar" aria-hidden="true">NJ</span><div><b>Neha J.</b><small>Designer cover</small></div></div>
+          </li>
+          <li class="review-card">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5">
+              <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+            </div>
+            <blockquote><p>My charging cable stopped working within a week. They checked it and replaced it the same day. Honest shop.</p></blockquote>
+            <div class="reviewer"><span class="avatar" aria-hidden="true">VP</span><div><b>Vikram P.</b><small>Type-C cable</small></div></div>
+          </li>
+          <li class="review-card">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5">
+              <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+            </div>
+            <blockquote><p>Our whole family buys phone accessories here. Always genuine stuff and helpful advice.</p></blockquote>
+            <div class="reviewer"><span class="avatar" aria-hidden="true">SD</span><div><b>Sneha D.</b><small>Regular customer</small></div></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. STORE INFORMATION
+         All details are filled in from STORE in js/script.js.
+         ============================================================ -->
+    <section class="section" id="store" aria-labelledby="store-title">
+      <div class="container">
+        <div class="sec-head">
+          <h2 id="store-title">Visit our store</h2>
+          <p>Drop in to try cases on your phone, or message us first to check stock.</p>
+        </div>
+
+        <div class="store-grid">
+          <div class="map-card">
+            <!-- Map placeholder. Set STORE.mapEmbedUrl to show a live Google Map here. -->
+            <div class="map-frame" data-map-frame>
+              <div class="map-placeholder">
+                <span class="map-pin"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+                <p class="map-title">Map preview</p>
+                <p class="map-note">Our live map will appear here soon.</p>
+              </div>
+            </div>
+            <div class="map-footer">
+              <p class="map-address" data-store="address">[Shop No.], [Building / Market Name], [Street], [Area], [City] – [PIN Code]</p>
+              <a class="btn btn-filled" data-link="maps" href="https://www.google.com/maps" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-directions"/></svg>Get Directions
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3 class="contact-title" data-store="name">Anjali Mobile &amp; Electronics</h3>
+            <ul class="contact-list plain">
+              <li>
+                <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+                <div><span class="contact-label">Address</span>
+                  <address class="contact-value" data-store="address">[Shop No.], [Building / Market Name], [Street], [Area], [City] – [PIN Code]</address></div>
+              </li>
+              <li>
+                <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+                <div><span class="contact-label">Opening hours</span>
+                  <ul class="hours plain" data-store-hours>
+                    <li><span>Mon – Sat</span><span>10:00 am – 9:00 pm</span></li>
+                    <li><span>Sunday</span><span>11:00 am – 7:00 pm</span></li>
+                  </ul></div>
+              </li>
+              <li>
+                <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+                <div><span class="contact-label">Phone</span>
+                  <a class="contact-value" data-link="tel" href="tel:+910000000000" data-store="phoneDisplay">+91 XXXXX XXXXX</a></div>
+              </li>
+              <li>
+                <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+                <div><span class="contact-label">WhatsApp</span>
+                  <a class="contact-value" data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener" data-store="whatsappDisplay">+91 XXXXX XXXXX</a></div>
+              </li>
+            </ul>
+            <div class="contact-actions">
+              <a class="btn btn-filled" data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat on WhatsApp
+              </a>
+              <a class="btn btn-outlined" data-link="tel" href="tel:+910000000000">
+                <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       9. FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="plate"><img src="assets/logo.jpg" alt="Anjali Mobile &amp; Electronics" width="594" height="220" loading="lazy"></span>
+        <p>Your neighbourhood store for phone cases, screen guards, chargers, earphones and everyday mobile accessories.</p>
+      </div>
+
+      <nav aria-labelledby="footer-links-title">
+        <h2 class="footer-title" id="footer-links-title">Quick links</h2>
+        <ul class="footer-links plain">
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#products">Popular products</a></li>
+          <li><a href="#why">Why choose us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#store">Visit store</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-title">Categories</h2>
+        <ul class="footer-links plain">
+          <li><a href="#products" data-filter-link="protection">Cases &amp; screen guards</a></li>
+          <li><a href="#products" data-filter-link="charging">Chargers &amp; cables</a></li>
+          <li><a href="#products" data-filter-link="charging">Power banks</a></li>
+          <li><a href="#products" data-filter-link="audio">Earphones &amp; smart watches</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Contact</h2>
+        <ul class="footer-links plain">
+          <li><address data-store="address">[Shop No.], [Building / Market Name], [Street], [Area], [City] – [PIN Code]</address></li>
+          <li><a data-link="tel" href="tel:+910000000000"><span data-store="phoneDisplay">+91 XXXXX XXXXX</span></a></li>
+          <li><a data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener">WhatsApp: <span data-store="whatsappDisplay">+91 XXXXX XXXXX</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> <span data-store="name">Anjali Mobile &amp; Electronics</span>. All rights reserved.</p>
+        <p class="credit">Designed &amp; Developed by <strong>Vrattiks</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a class="wa-fab" data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+  </a>
+
+</body>
+</html>

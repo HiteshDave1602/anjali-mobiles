@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- PLACEHOLDER product image: Type-C Fast Charger. Replace with a real photo. -->
+  <rect width="400" height="400" fill="#F4F4F4"/>
+  <rect x="160" y="70" width="18" height="60" rx="9" fill="#737373"/><rect x="222" y="70" width="18" height="60" rx="9" fill="#737373"/>
+  <rect x="120" y="120" width="160" height="200" rx="30" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="5"/>
+  <rect x="175" y="285" width="50" height="14" rx="7" fill="#111111"/>
+  <circle cx="200" cy="170" r="8" fill="#E84426"/>
+  <path d="M206 200l-22 38h18l-10 32 30-44h-18z" fill="#111111"/>
+</svg>

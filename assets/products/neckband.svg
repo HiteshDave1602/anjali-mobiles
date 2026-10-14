@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- PLACEHOLDER product image: Bluetooth Neckband. Replace with a real photo. -->
+  <rect width="400" height="400" fill="#F4F4F4"/>
+  <path d="M100 120c0 170 60 220 100 220s100-50 100-220" fill="none" stroke="#111111" stroke-width="22" stroke-linecap="round"/>
+  <rect x="80" y="160" width="40" height="90" rx="20" fill="#111111"/><rect x="280" y="160" width="40" height="90" rx="20" fill="#111111"/>
+  <path d="M100 160c-10-40-30-70-30-90M300 160c10-40 30-70 30-90" fill="none" stroke="#525252" stroke-width="5"/>
+  <circle cx="70" cy="62" r="18" fill="#E84426"/><circle cx="330" cy="62" r="18" fill="#E84426"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- PLACEHOLDER product image: 9H Tempered Glass. Replace with a real photo. -->
+  <rect width="400" height="400" fill="#F4F4F4"/>
+  <rect x="110" y="60" width="160" height="300" rx="28" fill="#111111"/>
+  <rect x="130" y="40" width="160" height="300" rx="28" fill="#FFFFFF" fill-opacity=".6" stroke="#737373" stroke-width="4"/>
+  <path d="M160 120l60-60M160 180l110-110M200 220l70-70" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+  <rect x="190" y="56" width="40" height="8" rx="4" fill="#737373"/>
+  <rect x="290" y="300" width="22" height="22" fill="#E84426"/>
+</svg>
