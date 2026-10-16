@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anjali Mobile hero banners</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ember:#E84426;--ember-600:#C8361A;--ember-700:#A82D15;--accent:#FF6B47;--ink:#111;--tonal:#FFE8E0;--grey:#525252;--font:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:#FAFAFA}
+.hero{position:relative;overflow:hidden}
+.track{display:flex;transition:transform .7s cubic-bezier(.2,0,0,1)}
+.slide{flex:0 0 100%;min-height:620px;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:32px;padding:0 max(32px,calc((100vw - 1180px)/2));position:relative;overflow:hidden}
+.slide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;background:var(--ember)}
+.copy{position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:700 16px/24px var(--font);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.eyebrow::before{content:"";width:10px;height:10px;background:var(--ember)}
+h2{font:800 clamp(36px,5vw,72px)/1.08 var(--font);letter-spacing:-1.5px;margin-bottom:20px}
+.sub{font:500 clamp(16px,1.6vw,22px)/1.55 var(--font);max-width:520px;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 32px;border-radius:9999px;font:700 18px/24px var(--font);text-decoration:none;transition:transform .1s,background-color .15s}
+.btn:active{transform:scale(.98)}
+.btn svg{width:20px;height:20px}
+.photo{position:relative;height:520px;display:grid;place-items:center}
+.photo::before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;max-width:90%;aspect-ratio:1}
+.photo img{position:relative;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.3))}
+.photo.missing img{display:none}
+.photo.missing::after{content:attr(data-file);position:relative;border:2px dashed currentColor;border-radius:16px;padding:48px 32px;font:600 18px/1.5 var(--font);text-align:center;opacity:.6;white-space:pre-line}
+/* themes */
+.s-ink{background:var(--ink);color:#fff}.s-ink .eyebrow{color:var(--accent)}.s-ink .sub{color:#D4D4D4}.s-ink h2 em{font-style:normal;color:var(--accent)}.s-ink .photo::before{background:#1F1F1F}
+.s-ink .btn{background:var(--ember-600);color:#fff}.s-ink .btn:hover{background:var(--ember-700)}
+.s-ember{background:var(--ember-600);color:#fff}.s-ember .eyebrow::before{background:#fff}.s-ember .sub{color:var(--tonal)}.s-ember .photo::before{background:var(--ember)}
+.s-ember .btn{background:#fff;color:var(--ink)}.s-ember .btn:hover{background:var(--tonal)}
+.s-white{background:#fff;color:var(--ink)}.s-white .eyebrow{color:var(--ember-600)}.s-white .sub{color:var(--grey)}.s-white .photo::before{background:var(--tonal)}
+.s-white .btn,.s-tonal .btn{background:var(--ember-600);color:#fff}.s-white .btn:hover,.s-tonal .btn:hover{background:var(--ember-700)}
+.s-tonal{background:#FAFAFA;color:var(--ink)}.s-tonal .eyebrow{color:var(--ember-600)}.s-tonal .sub{color:var(--grey)}.s-tonal .photo::before{background:#E5E5E5}
+/* controls */
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 6px -1px rgb(17 17 17/.2);z-index:5}
+.nav:hover{background:#fff}.nav svg{width:22px;height:22px}
+.prev{left:16px}.next{right:16px}
+.dots{position:absolute;left:0;right:0;bottom:20px;display:flex;justify-content:center;gap:10px;z-index:5}
+.dots button{width:12px;height:12px;border-radius:9999px;border:0;background:rgba(120,120,120,.5);cursor:pointer;transition:width .25s,background-color .25s;padding:0}
+.dots button[aria-current="true"]{width:36px;background:var(--ember)}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+@media(max-width:820px){
+  .slide{grid-template-columns:1fr;padding:48px 24px 72px;min-height:0;gap:8px}
+  .photo{height:300px;order:-1}.photo::before{width:260px;height:260px}
+  .nav{display:none}
+}
+@media(prefers-reduced-motion:reduce){.track{transition:none}}
+</style></head>
+<body>
+<section class="hero" aria-roledescription="carousel" aria-label="Featured collections">
+  <div class="track" id="track">
+
+    <article class="slide s-ink" aria-roledescription="slide" aria-label="1 of 4">
+      <div class="copy">
+        <div class="eyebrow">Smartphones</div>
+        <h2>Latest mobiles.<br><em>Best in class.</em></h2>
+        <p class="sub">Top smartphone brands with expert guidance, right here at Anjali Mobile.</p>
+        <a class="btn" href="#mobiles">Explore collection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="photo" data-file="Add product photo:&#10;assets/products/mobile.png"><img src="assets/products/mobile.png" alt="Smartphones"></div>
+    </article>
+
+    <article class="slide s-ember" aria-roledescription="slide" aria-label="2 of 4">
+      <div class="copy">
+        <div class="eyebrow">Televisions</div>
+        <h2>Big screen.<br>Bigger entertainment.</h2>
+        <p class="sub">Smart LED and 4K TVs that bring the cinema experience into your living room.</p>
+        <a class="btn" href="#tvs">Explore collection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="photo" data-file="Add product photo:&#10;assets/products/tv.png"><img src="assets/products/tv.png" alt="Televisions"></div>
+    </article>
+
+    <article class="slide s-white" aria-roledescription="slide" aria-label="3 of 4">
+      <div class="copy">
+        <div class="eyebrow">Refrigerators</div>
+        <h2>Keep it fresh.<br>Keep it cool.</h2>
+        <p class="sub">Spacious, energy-saving refrigerators for every kitchen and every family size.</p>
+        <a class="btn" href="#fridges">Explore collection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="photo" data-file="Add product photo:&#10;assets/products/fridge.png"><img src="assets/products/fridge.png" alt="Refrigerators"></div>
+    </article>
+
+    <article class="slide s-tonal" aria-roledescription="slide" aria-label="4 of 4">
+      <div class="copy">
+        <div class="eyebrow">Air conditioners</div>
+        <h2>Stay cool,<br>all summer long.</h2>
+        <p class="sub">Inverter split ACs with fast cooling and low power use for comfortable homes.</p>
+        <a class="btn" href="#acs">Explore collection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="photo" data-file="Add product photo:&#10;assets/products/ac.png"><img src="assets/products/ac.png" alt="Air conditioners"></div>
+    </article>
+
+  </div>
+  <button class="nav prev" aria-label="Previous banner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="nav next" aria-label="Next banner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="dots" id="dots"></div>
+</section>
+
+<script>
+(function(){
+  // show a dashed "add photo" box when a product image is missing
+  document.querySelectorAll('.photo').forEach(function(p){
+    var img=p.querySelector('img');
+    function miss(){p.classList.add('missing')}
+    img.addEventListener('error',miss);
+    if(img.complete&&img.naturalWidth===0)miss();
+  });
+  var track=document.getElementById('track'),slides=track.children,n=slides.length,i=0,timer,
+      dots=document.getElementById('dots'),hero=document.querySelector('.hero'),
+      reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for(var k=0;k<n;k++){(function(k){var b=document.createElement('button');b.setAttribute('aria-label','Go to banner '+(k+1));b.onclick=function(){go(k);restart()};dots.appendChild(b)})(k)}
+  function go(x){i=(x+n)%n;track.style.transform='translateX(-'+(i*100)+'%)';
+    [].forEach.call(dots.children,function(d,j){d.setAttribute('aria-current',j===i)})}
+  function start(){if(!reduce)timer=setInterval(function(){go(i+1)},5000)}
+  function stop(){clearInterval(timer)}
+  function restart(){stop();start()}
+  document.querySelector('.prev').onclick=function(){go(i-1);restart()};
+  document.querySelector('.next').onclick=function(){go(i+1);restart()};
+  hero.addEventListener('mouseenter',stop);hero.addEventListener('mouseleave',start);
+  hero.addEventListener('focusin',stop);hero.addEventListener('focusout',start);
+  hero.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){go(i-1);restart()}if(e.key==='ArrowRight'){go(i+1);restart()}});
+  var sx=null;
+  hero.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  hero.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50){go(i+(d<0?1:-1));restart()}sx=null});
+  go(0);start();
+})();
+</script>
+</body></html>

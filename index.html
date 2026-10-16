@@ -34,7 +34,8 @@
        Use with: <svg class="icon"><use href="#i-name"/></svg>
        ============================================================ -->
   <svg class="sprite" aria-hidden="true" focusable="false">
-    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></symbol>
+    <!-- Official WhatsApp glyph: filled, so it overrides the outline styling -->
+    <symbol id="i-whatsapp" viewBox="-1 -1 26 26"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.1 7-12a7 7 0 0 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
@@ -43,6 +44,7 @@
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
     <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.1A8.5 8.5 0 1 1 9.9 3.5a6.6 6.6 0 0 0 10.6 10.6z"/></symbol>
     <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.9 6.6 1-4.8 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.8-4.6 6.6-1z"/></symbol>
@@ -54,11 +56,28 @@
     <symbol id="i-powerbank" viewBox="0 0 24 24"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10v4"/><path d="M11.5 9l-2 3h3l-2 3"/></symbol>
     <symbol id="i-headphones" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><path d="M4 15h3v6H5a1 1 0 0 1-1-1zM20 15h-3v6h2a1 1 0 0 0 1-1z"/></symbol>
     <symbol id="i-watch" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6l1-4h4l1 4M9 18l1 4h4l1-4M12 10v2l1.5 1.5"/></symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+    <symbol id="i-tv" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-fridge" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 10h14M8.5 5.5v2M8.5 13v3"/></symbol>
+    <symbol id="i-ac" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="9" rx="2"/><path d="M6 11h12M8 17v3M12 17v4M16 17v3"/></symbol>
+    <symbol id="i-washer" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M4 7h16M7 4.5h2"/><circle cx="12" cy="14.5" r="4.5"/></symbol>
     <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></symbol>
     <!-- trust icons -->
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
     <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></symbol>
     <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></symbol>
+    <symbol id="i-instagram" viewBox="-1 -1 26 26"><path fill="currentColor" stroke="none" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+    <symbol id="i-facebook" viewBox="-1 -1 26 26"><path fill="currentColor" stroke="none" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
+
+    <!-- Brand logos (Simple Icons, CC0) -->
+    <symbol id="b-samsung" viewBox="0 10.166 24 3.668"><path fill="currentColor" stroke="none" d="M19.8166 10.2808l.0459 2.6934h-.023l-.7793-2.6934h-1.2837v3.3925h.8481l-.0458-2.785h.023l.8366 2.785h1.2264v-3.3925zm-16.149 0l-.6418 3.427h.9284l.4699-3.1175h.0229l.4585 3.1174h.9169l-.6304-3.4269zm5.1805 0l-.424 2.6132h-.023l-.424-2.6132H6.5788l-.0688 3.427h.8596l.023-3.0832h.0114l.573 3.0831h.8711l.5731-3.083h.023l.0228 3.083h.8596l-.0802-3.4269zm-7.2664 2.4527c.0343.0802.0229.1949.0114.2522-.0229.1146-.1031.2292-.3324.2292-.2177 0-.3438-.126-.3438-.3095v-.3323H0v.2636c0 .7679.6074.9971 1.2493.9971.6189 0 1.1346-.2178 1.2149-.7794.0458-.298.0114-.4928 0-.5616-.1605-.722-1.467-.9283-1.5588-1.3295-.0114-.0688-.0114-.1375 0-.1834.023-.1146.1032-.2292.3095-.2292.2063 0 .321.126.321.3095v.2063h.8595v-.2407c0-.745-.6762-.8596-1.1576-.8596-.6074 0-1.1117.2063-1.2034.7564-.023.149-.0344.2866.0114.4585.1376.7106 1.364.9169 1.5358 1.3524m11.152 0c.0343.0803.0228.1834.0114.2522-.023.1146-.1032.2292-.3324.2292-.2178 0-.3438-.126-.3438-.3095v-.3323h-.917v.2636c0 .7564.596.9857 1.2379.9857.6189 0 1.1232-.2063 1.2034-.7794.0459-.298.0115-.4814 0-.5616-.1375-.7106-1.4327-.9284-1.5243-1.318-.0115-.0688-.0115-.1376 0-.1835.0229-.1146.1031-.2292.3094-.2292.1948 0 .321.126.321.3095v.2063h.848v-.2407c0-.745-.6647-.8596-1.146-.8596-.6075 0-1.1004.1948-1.192.7564-.023.149-.023.2866.0114.4585.1376.7106 1.341.9054 1.513 1.3524m2.8882.4585c.2407 0 .3094-.1605.3323-.2522.0115-.0343.0115-.0917.0115-.126v-2.533h.871v2.4642c0 .0688 0 .1948-.0114.2292-.0573.6419-.5616.8482-1.192.8482-.6303 0-1.1346-.2063-1.192-.8482 0-.0344-.0114-.1604-.0114-.2292v-2.4642h.871v2.533c0 .0458 0 .0916.0115.126 0 .0917.0688.2522.3095.2522m7.1518-.0344c.2522 0 .3324-.1605.3553-.2522.0115-.0343.0115-.0917.0115-.126v-.4929h-.3553v-.5043H24v.917c0 .0687 0 .1145-.0115.2292-.0573.6303-.596.8481-1.2034.8481-.6075 0-1.1461-.2178-1.2034-.8481-.0115-.1147-.0115-.1605-.0115-.2293v-1.444c0-.0574.0115-.172.0115-.2293.0802-.6419.596-.8482 1.2034-.8482s1.1347.2063 1.2034.8482c.0115.1031.0115.2292.0115.2292v.1146h-.8596v-.1948s0-.0803-.0115-.1261c-.0114-.0802-.0802-.2521-.3438-.2521-.2521 0-.321.1604-.3438.2521-.0115.0458-.0115.1032-.0115.1605v1.5702c0 .0458 0 .0916.0115.126 0 .0917.0917.2522.3323.2522"/></symbol>
+    <symbol id="b-apple" viewBox="2.225 0 19.55 24"><path fill="currentColor" stroke="none" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+    <symbol id="b-oneplus" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M0 3.74V24h20.26V12.428h-2.256v9.317H2.254V5.995h9.318V3.742zM18.004 0v3.74h-3.758v2.256h3.758v3.758h2.255V5.996H24V3.74h-3.758V0zm-6.45 18.756V8.862H9.562c0 .682-.228 1.189-.577 1.504-.367.297-.91.437-1.556.437h-.245v1.625h2.133v6.31h2.237z"/></symbol>
+    <symbol id="b-xiaomi" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 0C8.016 0 4.756.255 2.493 2.516.23 4.776 0 8.033 0 12.012c0 3.98.23 7.235 2.494 9.497C4.757 23.77 8.017 24 12 24c3.983 0 7.243-.23 9.506-2.491C23.77 19.247 24 15.99 24 12.012c0-3.984-.233-7.243-2.502-9.504C19.234.252 15.978 0 12 0zM4.906 7.405h5.624c1.47 0 3.007.068 3.764.827.746.746.827 2.233.83 3.676v4.54a.15.15 0 0 1-.152.147h-1.947a.15.15 0 0 1-.152-.148V11.83c-.002-.806-.048-1.634-.464-2.051-.358-.36-1.026-.441-1.72-.458H7.158a.15.15 0 0 0-.151.147v6.98a.15.15 0 0 1-.152.148H4.906a.15.15 0 0 1-.15-.148V7.554a.15.15 0 0 1 .15-.149zm12.131 0h1.949a.15.15 0 0 1 .15.15v8.892a.15.15 0 0 1-.15.148h-1.949a.15.15 0 0 1-.151-.148V7.554a.15.15 0 0 1 .151-.149zM8.92 10.948h2.046c.083 0 .15.066.15.147v5.352a.15.15 0 0 1-.15.148H8.92a.15.15 0 0 1-.152-.148v-5.352a.15.15 0 0 1 .152-.147Z"/></symbol>
+    <symbol id="b-vivo" viewBox="0 8.852 24 6.295"><path fill="currentColor" stroke="none" d="M19.604 14.101c-1.159 0-1.262-.95-1.262-1.24 0-.29.103-1.242 1.262-1.242h2.062c1.16 0 1.263.951 1.263 1.242 0 .29-.104 1.24-1.263 1.24m-2.062-3.527c-2.142 0-2.333 1.752-2.333 2.287 0 .535.19 2.286 2.333 2.286h2.062c2.143 0 2.334-1.751 2.334-2.286 0-.535-.19-2.287-2.334-2.287m-5.477.107c-.286 0-.345.05-.456.213-.11.164-2.022 3.082-2.022 3.082-.06.09-.126.126-.206.126-.08 0-.145-.036-.206-.126 0 0-1.912-2.918-2.022-3.082-.11-.164-.17-.213-.456-.213h-.668c-.154 0-.224.12-.127.267l2.283 3.467c.354.521.614.732 1.196.732s.842-.21 1.196-.732l2.284-3.467c.096-.146.026-.267-.128-.267m-8.876.284c0-.203.08-.284.283-.284h.505c.203 0 .283.08.283.283v3.9c0 .202-.08.283-.283.283h-.505c-.203 0-.283-.08-.283-.283zm-1.769-.285c-.287 0-.346.05-.456.213-.11.164-2.022 3.082-2.022 3.082-.061.09-.126.126-.206.126-.08 0-.145-.036-.206-.126 0 0-1.912-2.918-2.023-3.082-.11-.164-.169-.213-.455-.213H.175c-.171 0-.224.12-.127.267l2.283 3.467c.355.521.615.732 1.197.732.582 0 .842-.21 1.196-.732l2.283-3.467c.097-.146.044-.267-.127-.267m1.055-.893c-.165-.164-.165-.295 0-.46l.351-.351c.165-.165.296-.165.46 0l.352.351c.165.165.165.296 0 .46l-.352.352c-.164.165-.295.165-.46 0z"/></symbol>
+    <symbol id="b-oppo" viewBox="0 9.147 24 5.705"><path fill="currentColor" stroke="none" d="M2.85 12.786h-.001C1.639 12.774.858 12.2.858 11.321s.781-1.452 1.99-1.465c1.21.013 1.992.588 1.992 1.465s-.782 1.453-1.99 1.465zm.034-3.638h-.073C1.156 9.175 0 10.068 0 11.32s1.156 2.147 2.811 2.174h.073c1.655-.027 2.811-.921 2.811-2.174S4.54 9.175 2.885 9.148zm18.27 3.638c-1.21-.012-1.992-.587-1.992-1.465s.782-1.452 1.991-1.465c1.21.013 1.991.588 1.991 1.465s-.781 1.453-1.99 1.465zm.035-3.638h-.073c-1.655.027-2.811.92-2.811 2.173s1.156 2.147 2.81 2.174h.074C22.844 13.468 24 12.574 24 11.32s-1.156-2.146-2.811-2.173zm-6.126 3.638c-1.21-.012-1.99-.587-1.99-1.465s.78-1.452 1.99-1.465c1.21.013 1.991.588 1.991 1.465s-.781 1.453-1.99 1.465zm.036-3.638h-.073c-.789.013-1.464.222-1.955.574v-.37h-.857v5.5h.857v-1.931c.49.351 1.166.56 1.954.574h.074c1.655-.027 2.81-.921 2.81-2.174s-1.155-2.146-2.81-2.173zm-6.144 3.638c-1.21-.012-1.99-.587-1.99-1.465s.78-1.452 1.99-1.465c1.21.013 1.991.588 1.991 1.465s-.781 1.453-1.99 1.465zm.037-3.638H8.92c-.789.013-1.464.222-1.955.574v-.37h-.856v5.5h.856v-1.931c.491.351 1.166.56 1.955.574a3.728 3.728 0 0 0 .073 0c1.655-.027 2.811-.921 2.811-2.174s-1.156-2.146-2.81-2.173z"/></symbol>
+    <symbol id="b-motorola" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12C24.002 5.375 18.632.002 12.007 0H12zm7.327 18.065s-.581-2.627-1.528-4.197c-.514-.857-1.308-1.553-2.368-1.532-.745 0-1.399.423-2.2 1.553-.469.77-.882 1.573-1.235 2.403 0 0-.29-.675-.63-1.343a8.038 8.038 0 0 0-.605-1.049c-.804-1.13-1.455-1.539-2.2-1.553-1.049-.021-1.854.675-2.364 1.528-.948 1.574-1.528 4.197-1.528 4.197h-.864l4.606-15.12 3.56 11.804.024.021.024-.021 3.56-11.804 4.61 15.113h-.862z"/></symbol>
+    <symbol id="b-boat" viewBox="1.881 0 20.239 24"><path fill="currentColor" stroke="none" d="M12.081 0 5.833 17.686 17.15 13.93Zm-10.2 18.223L4.961 24H19.14l2.98-5.777z"/></symbol>
   </svg>
 
   <a class="skip-link btn btn-filled" href="#main">Skip to content</a>
@@ -87,7 +106,7 @@
         <svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg>
       </button>
 
-      <a class="btn btn-filled btn-sm header-cta" data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener">
+      <a class="btn btn-filled btn-sm header-cta" data-wa="" href="https://wa.me/917575050007" target="_blank" rel="noopener">
         <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
         <span class="header-cta-label">WhatsApp Us</span>
       </a>
@@ -103,71 +122,71 @@
 
     <!-- ============================================================
          2. HERO CAROUSEL
-         Banner images live in /assets/banners/. To swap one, replace the
-         file (or change the src) and keep alt="" because the text is in HTML.
+         Each slide is one finished banner from /assets/banners/, shown
+         sharp and whole (no cropping, no backdrop): <name>.webp for
+         modern browsers, <name>.png (an untouched copy of the original)
+         as the fallback. The banners carry their own copy, so the only
+         HTML on a slide is the "Explore collection" link, laid exactly
+         over the button painted into the art. Its position and colours
+         are set per banner in style.css (section 6, [data-banner="..."]).
+         The banners are not all the same shape (TV and AC are 2:1, the
+         others 16:9), so each slide keeps its own image's aspect ratio
+         and script.js sizes the carousel to the slide on screen.
+         Arrows and dots float over the image; nothing sits below it.
          ============================================================ -->
-    <section class="hero" aria-label="Highlights">
+    <section class="hero" aria-label="Featured collections">
       <div class="container">
-        <div class="carousel" id="hero-carousel" aria-roledescription="carousel" aria-label="Store highlights">
+        <div class="carousel" id="hero-carousel" aria-roledescription="carousel" aria-label="Featured collections">
           <div class="carousel-viewport">
             <div class="carousel-track" aria-live="off">
 
-              <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
-                <img class="slide-media" src="assets/banners/banner-1.svg" alt="" width="1600" height="900" fetchpriority="high">
-                <div class="slide-copy">
-                  <span class="badge b-primary">New designs every week</span>
-                  <h2 class="slide-title">Cases that fit your phone and your style</h2>
-                  <p class="slide-text">Slim, rugged, clear and designer covers for the latest Samsung, Apple, vivo, OPPO and realme models.</p>
-                  <a class="btn btn-filled" href="#products">Explore Collection</a>
-                </div>
+              <div class="slide" data-banner="mobile" role="group" aria-roledescription="slide" aria-label="1 of 4">
+                <picture>
+                  <source srcset="assets/banners/mobile.webp" type="image/webp">
+                  <img class="banner-img" src="assets/banners/mobile.png" alt="Latest smartphones" width="1672" height="941" fetchpriority="high">
+                </picture>
+                <a class="banner-cta" href="#products" data-filter-link="mobiles">Explore collection<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
               </div>
 
-              <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
-                <img class="slide-media" src="assets/banners/banner-2.svg" alt="" width="1600" height="900" loading="lazy">
-                <div class="slide-copy">
-                  <span class="badge b-primary">Safe, fast charging</span>
-                  <h2 class="slide-title">Chargers your battery will thank you for</h2>
-                  <p class="slide-text">Genuine fast chargers, braided cables and power banks matched to your phone model.</p>
-                  <a class="btn btn-filled" data-wa="Hi Anjali Mobile, I'm looking for a charger for my phone. My model is: " href="https://wa.me/910000000000" target="_blank" rel="noopener">
-                    <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Shop on WhatsApp
-                  </a>
-                </div>
+              <div class="slide" data-banner="tv" role="group" aria-roledescription="slide" aria-label="2 of 4">
+                <picture>
+                  <source srcset="assets/banners/tv.webp" type="image/webp">
+                  <img class="banner-img" src="assets/banners/tv.png" alt="Smart TVs" width="1774" height="887" loading="lazy">
+                </picture>
+                <a class="banner-cta" href="#products" data-filter-link="tv">Explore collection<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
               </div>
 
-              <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
-                <img class="slide-media" src="assets/banners/banner-3.svg" alt="" width="1600" height="900" loading="lazy">
-                <div class="slide-copy">
-                  <span class="badge b-primary">Try before you buy</span>
-                  <h2 class="slide-title">Sound that goes wherever you go</h2>
-                  <p class="slide-text">Wireless earbuds, neckbands and speakers from boAt, Noise, Portronics and more. Listen at the counter first.</p>
-                  <a class="btn btn-filled" href="#products">Explore Collection</a>
-                </div>
+              <div class="slide" data-banner="fridge" role="group" aria-roledescription="slide" aria-label="3 of 4">
+                <picture>
+                  <source srcset="assets/banners/fridge.webp" type="image/webp">
+                  <img class="banner-img" src="assets/banners/fridge.png" alt="Refrigerators" width="1672" height="941" loading="lazy">
+                </picture>
+                <a class="banner-cta" href="#products" data-filter-link="fridge">Explore collection<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
               </div>
 
-              <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
-                <img class="slide-media" src="assets/banners/banner-4.svg" alt="" width="1600" height="900" loading="lazy">
-                <div class="slide-copy">
-                  <span class="badge b-primary">Your neighbourhood store</span>
-                  <h2 class="slide-title">Real advice from people who know phones</h2>
-                  <p class="slide-text">Try cases on your own phone, get your screen guard fitted, and leave with exactly what you need.</p>
-                  <a class="btn btn-filled" href="#store">Visit Our Store</a>
-                </div>
+              <div class="slide" data-banner="ac" role="group" aria-roledescription="slide" aria-label="4 of 4">
+                <picture>
+                  <source srcset="assets/banners/ac.webp" type="image/webp">
+                  <img class="banner-img" src="assets/banners/ac.png" alt="Air conditioners" width="1774" height="887" loading="lazy">
+                </picture>
+                <a class="banner-cta" href="#products" data-filter-link="ac">Explore collection<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
               </div>
 
             </div>
           </div>
 
-          <!-- Controls: dots are generated by script.js from the number of slides -->
+          <!-- Controls, laid over the image: both arrows grouped at the bottom right,
+               dots at the bottom centre. Dots are generated by script.js from the number of slides -->
           <div class="carousel-controls">
-            <div class="carousel-dots" role="group" aria-label="Choose a slide"></div>
-            <div class="carousel-buttons">
-              <button class="icon-btn" type="button" data-carousel="prev" aria-label="Previous slide">
+            <div class="carousel-nav">
+              <button class="carousel-arrow" type="button" data-carousel="prev" aria-label="Previous slide">
                 <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
               </button>
-              <button class="icon-btn" type="button" data-carousel="next" aria-label="Next slide">
+              <button class="carousel-arrow" type="button" data-carousel="next" aria-label="Next slide">
                 <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
               </button>
             </div>
+            <div class="carousel-dots" role="group" aria-label="Choose a slide"></div>
           </div>
         </div>
       </div>
@@ -185,23 +204,23 @@
         </div>
 
         <ul class="cat-grid plain">
-          <li><a class="cat-card" href="#products" data-filter-link="protection">
+          <li><a class="cat-card" href="#products" data-filter-link="cases">
             <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-case"/></svg></span>
             <span class="cat-text"><span class="cat-name">Phone Cases</span><span class="cat-sub">Slim, rugged and clear</span></span>
           </a></li>
-          <li><a class="cat-card" href="#products" data-filter-link="protection">
+          <li><a class="cat-card" href="#products" data-filter-link="cases">
             <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-guard"/></svg></span>
             <span class="cat-text"><span class="cat-name">Screen Guards</span><span class="cat-sub">Tempered and privacy glass</span></span>
           </a></li>
-          <li><a class="cat-card" href="#products" data-filter-link="charging">
+          <li><a class="cat-card" href="#products" data-filter-link="chargers">
             <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-charger"/></svg></span>
             <span class="cat-text"><span class="cat-name">Chargers</span><span class="cat-sub">Fast and wall adapters</span></span>
           </a></li>
-          <li><a class="cat-card" href="#products" data-filter-link="charging">
+          <li><a class="cat-card" href="#products" data-filter-link="chargers">
             <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-cable"/></svg></span>
             <span class="cat-text"><span class="cat-name">Cables</span><span class="cat-sub">Type-C, Lightning, micro USB</span></span>
           </a></li>
-          <li><a class="cat-card" href="#products" data-filter-link="charging">
+          <li><a class="cat-card" href="#products" data-filter-link="chargers">
             <span class="cat-icon"><svg class="icon" aria-hidden="true"><use href="#i-powerbank"/></svg></span>
             <span class="cat-text"><span class="cat-name">Power Banks</span><span class="cat-sub">Pocket to travel size</span></span>
           </a></li>
@@ -235,7 +254,7 @@
           <div class="pixels" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           <h2 class="promo-title">New stock arrives every week</h2>
           <p>Tell us your phone model on WhatsApp and we'll share what's in store for it.</p>
-          <a class="btn btn-tonal" data-wa="Hi Anjali Mobile, what's new in stock for my phone? My model is: " href="https://wa.me/910000000000" target="_blank" rel="noopener">
+          <a class="btn btn-tonal" data-wa="Hi Anjali Mobile, what's new in stock for my phone? My model is: " href="https://wa.me/917575050007" target="_blank" rel="noopener">
             <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Ask on WhatsApp
           </a>
         </div>
@@ -244,9 +263,11 @@
 
     <!-- ============================================================
          4. FEATURED PRODUCTS (no prices, by design)
-         To add a product, copy one <li class="product-card">, change the
-         image, name, tag and data-wa-product. data-category must be one of:
-         protection | charging | audio
+         The cards are built by js/script.js from the PRODUCTS list in
+         section 6 of that file: edit the list to add or change a product.
+         Photos: save each one as assets/products/<category>/<id>.webp (or
+         .png) and it appears on its card; until then the card shows a
+         category icon. IMAGES-NEEDED.md lists every file name.
          ============================================================ -->
     <section class="section" id="products" aria-labelledby="products-title">
       <div class="container">
@@ -255,96 +276,21 @@
           <p>Our customers' favourites this month. Message us to check stock for your model.</p>
         </div>
 
-        <div class="filter-tabs" role="group" aria-label="Filter products">
-          <button type="button" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" data-filter="protection" aria-pressed="false">Cases &amp; Guards</button>
-          <button type="button" data-filter="charging" aria-pressed="false">Charging</button>
-          <button type="button" data-filter="audio" aria-pressed="false">Audio &amp; Wearables</button>
+        <div class="filter-tabs" role="tablist" aria-label="Product group">
+          <button type="button" role="tab" id="tab-all" data-group-filter="all" aria-selected="true" aria-controls="product-panel">All</button>
+          <button type="button" role="tab" id="tab-general" data-group-filter="general" aria-selected="false" aria-controls="product-panel" tabindex="-1">General</button>
+          <button type="button" role="tab" id="tab-major" data-group-filter="major" aria-selected="false" aria-controls="product-panel" tabindex="-1">Major Appliances</button>
         </div>
+        <!-- Category chips for the chosen group, built by script.js -->
+        <div class="filter-chips" id="product-chips" role="tablist" aria-label="Filter by category" hidden></div>
         <p class="sr-only" id="product-status" aria-live="polite"></p>
 
-        <ul class="product-grid plain" id="product-grid">
-          <li class="product-card" data-category="protection">
-            <div class="product-media"><img src="assets/products/clear-case.svg" alt="Transparent shockproof phone case with raised corners" width="400" height="400" loading="lazy"></div>
-            <div class="product-body">
-              <span class="badge b-primary">Bestseller</span>
-              <h3 class="product-name">Shockproof Clear Case</h3>
-              <a class="btn btn-outlined btn-full" data-wa-product="Shockproof Clear Case" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Shockproof Clear Case">
-                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
-              </a>
-            </div>
-          </li>
-          <li class="product-card" data-category="charging">
-            <div class="product-media"><img src="assets/products/fast-charger.svg" alt="White Type-C fast charging wall adapter" width="400" height="400" loading="lazy"></div>
-            <div class="product-body">
-              <span class="badge b-success">Genuine</span>
-              <h3 class="product-name">Type-C Fast Charger</h3>
-              <a class="btn btn-outlined btn-full" data-wa-product="Type-C Fast Charger" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Type-C Fast Charger">
-                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
-              </a>
-            </div>
-          </li>
-          <li class="product-card" data-category="audio">
-            <div class="product-media"><img src="assets/products/wireless-earbuds.svg" alt="Black wireless earbuds with charging case" width="400" height="400" loading="lazy"></div>
-            <div class="product-body">
-              <span class="badge b-info">New arrival</span>
-              <h3 class="product-name">Wireless Earbuds</h3>
-              <a class="btn btn-outlined btn-full" data-wa-product="Wireless Earbuds" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Wireless Earbuds">
-                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
-              </a>
-            </div>
-          </li>
-          <li class="product-card" data-category="protection">
-            <div class="product-media"><img src="assets/products/tempered-glass.svg" alt="9H tempered glass screen guard over a phone" width="400" height="400" loading="lazy"></div>
-            <div class="product-body">
-              <span class="badge b-neutral">Fitted in store</span>
-              <h3 class="product-name">9H Tempered Glass</h3>
-              <a class="btn btn-outlined btn-full" data-wa-product="9H Tempered Glass" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the 9H Tempered Glass">
-                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
-              </a>
-            </div>
-          </li>
-          <li class="product-card" data-category="charging">
-            <div class="product-media"><img src="assets/products/power-bank.svg" alt="Black 10000 mAh power bank with charge indicator lights" width="400" height="400" loading="lazy"></div>
-            <div class="product-body">
-              <span class="badge b-primary">Travel pick</span>
-              <h3 class="product-name">10000 mAh Power Bank</h3>
-              <a class="btn btn-outlined btn-full" data-wa-product="10000 mAh Power Bank" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the 10000 mAh Power Bank">
-                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
-              </a>
-            </div>
-          </li>
-          <li class="product-card" data-category="charging">
-            <div class="product-media"><img src="assets/products/braided-cable.svg" alt="Braided Type-C charging cable" width="400" height="400" loading="lazy"></div>
-            <div class="product-body">
-              <span class="badge b-neutral">1.5 m braided</span>
-              <h3 class="product-name">Braided Type-C Cable</h3>
-              <a class="btn btn-outlined btn-full" data-wa-product="Braided Type-C Cable" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Braided Type-C Cable">
-                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
-              </a>
-            </div>
-          </li>
-          <li class="product-card" data-category="audio">
-            <div class="product-media"><img src="assets/products/smart-watch.svg" alt="Black smart watch with fitness ring on screen" width="400" height="400" loading="lazy"></div>
-            <div class="product-body">
-              <span class="badge b-info">Trending</span>
-              <h3 class="product-name">Calling Smart Watch</h3>
-              <a class="btn btn-outlined btn-full" data-wa-product="Calling Smart Watch" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Calling Smart Watch">
-                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
-              </a>
-            </div>
-          </li>
-          <li class="product-card" data-category="audio">
-            <div class="product-media"><img src="assets/products/neckband.svg" alt="Black Bluetooth neckband earphones" width="400" height="400" loading="lazy"></div>
-            <div class="product-body">
-              <span class="badge b-success">Long battery</span>
-              <h3 class="product-name">Bluetooth Neckband</h3>
-              <a class="btn btn-outlined btn-full" data-wa-product="Bluetooth Neckband" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp about the Bluetooth Neckband">
-                <svg class="icon icon-wa" aria-hidden="true"><use href="#i-whatsapp"/></svg>Enquire on WhatsApp
-              </a>
-            </div>
-          </li>
-        </ul>
+        <div id="product-panel" role="tabpanel" aria-labelledby="tab-all">
+          <ul class="product-grid plain" id="product-grid"></ul>
+        </div>
+        <noscript>
+          <p class="product-noscript">Turn on JavaScript to browse our products, or <a href="https://wa.me/917575050007" target="_blank" rel="noopener">message us on WhatsApp</a> to check stock.</p>
+        </noscript>
       </div>
     </section>
 
@@ -394,7 +340,7 @@
     </section>
 
     <!-- ============================================================
-         6. BRANDS (plain text only, no logo images)
+         6. BRANDS (logos from Simple Icons, CC0; text where no logo exists)
          ============================================================ -->
     <section class="section" id="brands" aria-labelledby="brands-title">
       <div class="container">
@@ -403,15 +349,15 @@
           <p>Cases and guards for every popular phone, plus accessories from names you know.</p>
         </div>
         <ul class="brand-grid plain">
-          <li>Samsung</li>
-          <li>Apple</li>
-          <li>OnePlus</li>
-          <li>Xiaomi</li>
+          <li><svg class="brand-logo" width="88" height="13.4" viewBox="0 0 88 13.4" role="img" aria-label="Samsung"><use href="#b-samsung"/></svg></li>
+          <li><svg class="brand-logo" width="22.8" height="28" viewBox="0 0 22.8 28" aria-hidden="true"><use href="#b-apple"/></svg><span>Apple</span></li>
+          <li><svg class="brand-logo" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><use href="#b-oneplus"/></svg><span>OnePlus</span></li>
+          <li><svg class="brand-logo" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><use href="#b-xiaomi"/></svg><span>Xiaomi</span></li>
           <li>realme</li>
-          <li>vivo</li>
-          <li>OPPO</li>
-          <li>Motorola</li>
-          <li>boAt</li>
+          <li><svg class="brand-logo" width="72" height="18.9" viewBox="0 0 72 18.9" role="img" aria-label="vivo"><use href="#b-vivo"/></svg></li>
+          <li><svg class="brand-logo" width="76" height="18.1" viewBox="0 0 76 18.1" role="img" aria-label="OPPO"><use href="#b-oppo"/></svg></li>
+          <li><svg class="brand-logo" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><use href="#b-motorola"/></svg><span>Motorola</span></li>
+          <li><svg class="brand-logo" width="23.6" height="28" viewBox="0 0 23.6 28" aria-hidden="true"><use href="#b-boat"/></svg><span>boAt</span></li>
           <li>Portronics</li>
           <li>Ambrane</li>
           <li>Noise</li>
@@ -489,17 +435,17 @@
 
         <div class="store-grid">
           <div class="map-card">
-            <!-- Map placeholder. Set STORE.mapEmbedUrl to show a live Google Map here. -->
+            <!-- Shown until script.js swaps in the live Google Map from STORE.mapEmbedUrl. -->
             <div class="map-frame" data-map-frame>
               <div class="map-placeholder">
                 <span class="map-pin"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
-                <p class="map-title">Map preview</p>
-                <p class="map-note">Our live map will appear here soon.</p>
+                <p class="map-title">Main Bazar, Vesma</p>
+                <p class="map-note">Opposite the Post Office</p>
               </div>
             </div>
             <div class="map-footer">
-              <p class="map-address" data-store="address">[Shop No.], [Building / Market Name], [Street], [Area], [City] – [PIN Code]</p>
-              <a class="btn btn-filled" data-link="maps" href="https://www.google.com/maps" target="_blank" rel="noopener">
+              <p class="map-address" data-store="address">Opposite Post Office, Main Bazar, Vesma, Navsari, Gujarat – 394352</p>
+              <a class="btn btn-filled" data-link="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Post+Office+Main+Bazar+Vesma+Navsari+Gujarat+394352" target="_blank" rel="noopener">
                 <svg class="icon" aria-hidden="true"><use href="#i-directions"/></svg>Get Directions
               </a>
             </div>
@@ -511,7 +457,7 @@
               <li>
                 <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
                 <div><span class="contact-label">Address</span>
-                  <address class="contact-value" data-store="address">[Shop No.], [Building / Market Name], [Street], [Area], [City] – [PIN Code]</address></div>
+                  <address class="contact-value" data-store="address">Opposite Post Office, Main Bazar, Vesma, Navsari, Gujarat – 394352</address></div>
               </li>
               <li>
                 <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
@@ -524,19 +470,29 @@
               <li>
                 <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
                 <div><span class="contact-label">Phone</span>
-                  <a class="contact-value" data-link="tel" href="tel:+910000000000" data-store="phoneDisplay">+91 XXXXX XXXXX</a></div>
+                  <a class="contact-value" data-link="tel" href="tel:+917575050007" data-store="phoneDisplay">+91 75750 50007</a></div>
               </li>
               <li>
                 <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
                 <div><span class="contact-label">WhatsApp</span>
-                  <a class="contact-value" data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener" data-store="whatsappDisplay">+91 XXXXX XXXXX</a></div>
+                  <a class="contact-value" data-wa="" href="https://wa.me/917575050007" target="_blank" rel="noopener" data-store="whatsappDisplay">+91 75750 50007</a></div>
+              </li>
+              <li>
+                <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+                <div><span class="contact-label">Instagram</span>
+                  <a class="contact-value" data-link="instagram" href="https://www.instagram.com/anjali_mobile_electronic/" target="_blank" rel="noopener" data-store="instagramHandle">@anjali_mobile_electronic</a></div>
+              </li>
+              <li>
+                <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></span>
+                <div><span class="contact-label">Facebook</span>
+                  <a class="contact-value" data-link="facebook" href="https://www.facebook.com/750781834989761/" target="_blank" rel="noopener" data-store="name">Anjali Mobile &amp; Electronics</a></div>
               </li>
             </ul>
             <div class="contact-actions">
-              <a class="btn btn-filled" data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener">
+              <a class="btn btn-filled" data-wa="" href="https://wa.me/917575050007" target="_blank" rel="noopener">
                 <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat on WhatsApp
               </a>
-              <a class="btn btn-outlined" data-link="tel" href="tel:+910000000000">
+              <a class="btn btn-outlined" data-link="tel" href="tel:+917575050007">
                 <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call Now
               </a>
             </div>
@@ -554,6 +510,10 @@
       <div class="footer-brand">
         <span class="plate"><img src="assets/logo.jpg" alt="Anjali Mobile &amp; Electronics" width="594" height="220" loading="lazy"></span>
         <p>Your neighbourhood store for phone cases, screen guards, chargers, earphones and everyday mobile accessories.</p>
+        <ul class="social-links plain">
+          <li><a class="icon-btn" data-link="instagram" href="https://www.instagram.com/anjali_mobile_electronic/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+          <li><a class="icon-btn" data-link="facebook" href="https://www.facebook.com/750781834989761/" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+        </ul>
       </div>
 
       <nav aria-labelledby="footer-links-title">
@@ -570,19 +530,21 @@
       <div>
         <h2 class="footer-title">Categories</h2>
         <ul class="footer-links plain">
-          <li><a href="#products" data-filter-link="protection">Cases &amp; screen guards</a></li>
-          <li><a href="#products" data-filter-link="charging">Chargers &amp; cables</a></li>
-          <li><a href="#products" data-filter-link="charging">Power banks</a></li>
+          <li><a href="#products" data-filter-link="cases">Cases &amp; screen guards</a></li>
+          <li><a href="#products" data-filter-link="chargers">Chargers &amp; cables</a></li>
+          <li><a href="#products" data-filter-link="chargers">Power banks</a></li>
           <li><a href="#products" data-filter-link="audio">Earphones &amp; smart watches</a></li>
+          <li><a href="#products" data-filter-link="mobiles">Mobiles</a></li>
+          <li><a href="#products" data-filter-link="major">TV, fridge, AC &amp; washing machine</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="footer-title">Contact</h2>
         <ul class="footer-links plain">
-          <li><address data-store="address">[Shop No.], [Building / Market Name], [Street], [Area], [City] – [PIN Code]</address></li>
-          <li><a data-link="tel" href="tel:+910000000000"><span data-store="phoneDisplay">+91 XXXXX XXXXX</span></a></li>
-          <li><a data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener">WhatsApp: <span data-store="whatsappDisplay">+91 XXXXX XXXXX</span></a></li>
+          <li><address data-store="address">Opposite Post Office, Main Bazar, Vesma, Navsari, Gujarat – 394352</address></li>
+          <li><a data-link="tel" href="tel:+917575050007"><span data-store="phoneDisplay">+91 75750 50007</span></a></li>
+          <li><a data-wa="" href="https://wa.me/917575050007" target="_blank" rel="noopener">WhatsApp: <span data-store="whatsappDisplay">+91 75750 50007</span></a></li>
         </ul>
       </div>
     </div>
@@ -596,7 +558,7 @@
   </footer>
 
   <!-- Floating WhatsApp button -->
-  <a class="wa-fab" data-wa="" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <a class="wa-fab" data-wa="" href="https://wa.me/917575050007" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
     <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
   </a>
 

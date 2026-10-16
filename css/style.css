@@ -81,8 +81,13 @@
 /* ---------------------------------------------------------------------
    2. Layout tokens
    These are not new styles. They name values the design system's own
-   components already use (8/12/16/24px radii, 1180px container,
-   56px section spacing, 16/24px gutters).
+   components already use (8/12/16/24px radii, 56px section spacing,
+   16/24px gutters).
+   Page width: every block (header, hero, sections, footer) sits in the
+   one .container below, so its edges line up everywhere. Change the
+   page width here only:
+     --page-max     widest the content gets; wider screens centre it
+     --page-gutter  side gutter: 16px on phones, 24px from 640px up
    --------------------------------------------------------------------- */
 :root{
   --radius-sm:8px;
@@ -90,14 +95,19 @@
   --radius-lg:16px;
   --radius-xl:24px;
   --radius-pill:9999px;
-  --container:1180px;
-  --gutter:16px;
+  --page-max:1840px;
+  --page-gutter:16px;
   --section-gap:56px;
   /* Translucent tints for content on ink panels (same color-mix technique the design system uses) */
   --on-ink-12:color-mix(in srgb,var(--on-reward-container) 12%,transparent);
   --on-ink-6:color-mix(in srgb,var(--on-reward-container) 6%,transparent);
+  /* Product image tiles stay white in both themes (the photos are shot on
+     white), so what sits on them uses the design system's light values */
+  --tile-surface:#FFFFFF;
+  --tile-on-surface-variant:#525252;
+  --tile-icon:var(--ember-500);
 }
-@media (min-width:641px){ :root{ --gutter:24px; } }
+@media (min-width:640px){ :root{ --page-gutter:24px; } }
 
 
 /* ---------------------------------------------------------------------
@@ -122,7 +132,8 @@ address{font-style:normal}
 .num{font-variant-numeric:tabular-nums}
 
 .plain{list-style:none;margin:0;padding:0}
-.container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+/* Content is at most --page-max wide, plus the gutter on each side */
+.container{max-width:calc(var(--page-max) + 2 * var(--page-gutter));margin:0 auto;padding:0 var(--page-gutter)}
 .section{padding-top:var(--section-gap)}
 main{padding-bottom:80px}
 @media (min-width:641px){ main{padding-bottom:96px} }
@@ -195,7 +206,7 @@ main{padding-bottom:80px}
 .brand{display:inline-flex;margin-right:auto;border-radius:var(--radius-sm)}
 
 /* Mobile menu: a panel that drops below the header */
-.nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--outline-variant);box-shadow:var(--e3);padding:8px var(--gutter) 16px}
+.nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--outline-variant);box-shadow:var(--e3);padding:8px var(--page-gutter) 16px}
 .nav.is-open{display:block}
 .nav ul{display:grid;gap:4px}
 .nav a{display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:var(--radius-sm);font-size:16px;color:var(--on-surface);text-decoration:none}
@@ -222,55 +233,132 @@ main{padding-bottom:80px}
 
 /* ---------------------------------------------------------------------
    6. Hero carousel
-   Mobile: image on top, text below. Tablet and up: text over the image
-   with an ink gradient for legibility.
+   Each slide is one finished banner image, shown sharp and whole: the
+   slide takes its image's own aspect ratio (--ratio), so the picture
+   fills it edge to edge with nothing cropped, blurred or letterboxed.
+   TV and AC are 2:1 and the others 16:9, so slides differ in height:
+   script.js sets the viewport to the slide on screen and eases between
+   the two heights.
+   The only HTML on a slide is the "Explore collection" link, laid
+   exactly over the button painted into the art so the old label never
+   shows. The slide is a size container: positions are % of the image
+   and the link's text is in cqw (1cqw = 1% of the slide width), so it
+   stays on the painted button at every screen size.
+   Arrows and dots float over the image, clear of the banner copy; the
+   carousel ends where the image ends.
    --------------------------------------------------------------------- */
 .hero{padding-top:16px}
 @media (min-width:641px){ .hero{padding-top:24px} }
 
-.carousel{position:relative;background:var(--reward-container);color:var(--on-reward-container);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--e2)}
-.carousel-viewport{overflow:hidden}
-.carousel-track{display:flex;transition:transform 600ms var(--std);touch-action:pan-y}
+.carousel{position:relative;background:var(--surface-variant);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--e2)}
+.carousel-viewport{overflow:hidden;transition:height 600ms var(--std)}
+.carousel-track{display:flex;align-items:flex-start;transition:transform 600ms var(--std);touch-action:pan-y}
+.carousel-viewport.no-anim,
 .carousel-track.no-anim{transition:none}
 
-.slide{flex:0 0 100%;min-width:0;position:relative;display:flex;flex-direction:column}
-.slide-media{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:80% 50%;user-select:none;-webkit-user-drag:none}
-.slide-copy{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:20px 20px 8px}
-.slide-title{font:700 28px/36px var(--font);letter-spacing:-.25px;max-width:18ch}
-.slide-text{opacity:.85;max-width:46ch}
-.slide-copy .btn{margin-top:4px}
+.slide{flex:0 0 100%;min-width:0;position:relative;aspect-ratio:var(--ratio);container-type:inline-size}
+.slide picture{display:block}
+.banner-img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 
-.carousel-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px 20px}
-.carousel-dots{display:flex;align-items:center;gap:4px}
-.carousel-buttons{display:flex;gap:8px}
+/* The covering button. Per banner (measured from the art):
+     --ratio      the image's width / height
+     --cta-x      left edge, % of image width
+     --cta-y      vertical centre, % of image height
+     --cta-min-w  painted button's width + margin, so it is always covered
+     --cta-bg / --cta-fg / --cta-border  sampled from the art. These are
+     fixed colours, not theme tokens, because the image doesn't change
+     with light/dark mode either. */
+.banner-cta{
+  position:absolute;left:var(--cta-x);top:var(--cta-y);transform:translateY(-50%);
+  min-width:var(--cta-min-w,0);height:3.9cqw;padding:0 1.9cqw;
+  display:inline-flex;align-items:center;justify-content:center;gap:.8cqw;
+  border:var(--cta-border,0 solid transparent);border-radius:var(--radius-pill);
+  background:var(--cta-bg);color:var(--cta-fg);
+  font:600 1.7cqw/1 var(--font);letter-spacing:.1px;white-space:nowrap;text-decoration:none;
+  transition:transform 100ms var(--std),box-shadow 150ms var(--std);
+}
+/* On phones the pill is only ~14px tall: an invisible strip gives it a
+   44px-high tap target without changing how it looks */
+.banner-cta::before{content:"";position:absolute;left:0;right:0;top:50%;height:max(100%,44px);transform:translateY(-50%)}
+/* Small phones: the dots sit just below the pill, so the strip grows
+   upwards only (over image art) and stays out of the dots' tap area */
+@media (max-width:479px){ .banner-cta::before{top:auto;bottom:0;transform:none} }
+.banner-cta .icon{width:1.2em;height:1.2em}
+.banner-cta:hover{color:var(--cta-fg);box-shadow:inset 0 0 0 100cqw color-mix(in srgb,var(--cta-fg) 14%,transparent)}
+.banner-cta:active{transform:translateY(-50%) scale(.98)}
+.banner-cta:focus-visible{outline:max(2px,.25cqw) solid var(--ember-500);outline-offset:max(2px,.3cqw)}
 
-/* Dot: 24px tap target, 8px visual; the active one stretches into an ember bar */
+[data-banner="mobile"]{--ratio:1672/941;--cta-x:9.57%;--cta-y:63.18%;--cta-min-w:15.61%;--cta-fg:#FFFFFF;
+  --cta-bg:linear-gradient(97deg,#5C4D5D 0%,#7A6371 45%,#A88B8F 100%);--cta-border:max(1px,.12cqw) solid rgb(255 255 255 / .75)}
+[data-banner="tv"]{--ratio:1774/887;--cta-x:6.99%;--cta-y:71.98%;--cta-min-w:11.56%;--cta-fg:#FFFFFF;
+  --cta-bg:linear-gradient(90deg,#3B2D96,#4630AE)}
+[data-banner="fridge"]{--ratio:1672/941;--cta-x:15.07%;--cta-y:71%;--cta-fg:#FFFFFF;--cta-bg:var(--ink)} /* no painted button: placed under the icons row */
+[data-banner="ac"]{--ratio:1774/887;--cta-x:10.48%;--cta-y:74.13%;--cta-min-w:11.61%;--cta-fg:#FFFFFF;
+  --cta-bg:linear-gradient(90deg,#815CFD,#AF70FE)}
+
+/* Controls layer: covers the image but only the buttons take clicks.
+   Fixed colours (not theme tokens) because they sit on the image.
+   The banner copy stays in the left 42% of every banner, so the bottom
+   right is clear art: both arrows sit there side by side.
+   The floating WhatsApp button (section 14) is fixed to the screen's
+   bottom right, so while the page scrolls it passes over every height
+   of the hero. The group therefore keeps 16px clear of it sideways:
+   the button's inner edge is 56px + its inset from the screen edge, and
+   up to 1888px wide that inset equals the page gutter, so the group sits
+   72px in from the carousel's edge. Wider screens centre the carousel
+   and pull its edge away from the button, so the group eases out to
+   24px (1024px - 50vw reaches 24px by 2000px, allowing for a scrollbar). */
+.carousel-controls{position:absolute;inset:0;pointer-events:none}
+.carousel-controls > *{pointer-events:auto}
+
+.carousel-nav{position:absolute;right:72px;bottom:16px;display:flex;gap:12px}
+.carousel-arrow{
+  --size:36px;
+  width:var(--size);height:var(--size);padding:0;border:0;border-radius:var(--radius-pill);
+  background:rgb(255 255 255 / .85);color:var(--ink);box-shadow:0 2px 8px rgb(17 17 17 / .28);
+  display:grid;place-items:center;cursor:pointer;
+  transition:background-color 150ms var(--std),transform 100ms var(--std);
+}
+.carousel-arrow .icon{width:20px;height:20px}
+.carousel-arrow:hover{background:#FFFFFF}
+.carousel-arrow:active{transform:scale(.95)}
+.carousel-arrow:focus-visible{outline:3px solid var(--ember-500);outline-offset:2px}
+
+/* Dots on a dark pill, bottom centre. Dot: 24px tap target, 8px visual;
+   the active one stretches into an ember bar */
+.carousel-dots{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);display:flex;align-items:center;gap:2px;padding:2px 6px;border-radius:var(--radius-pill);background:rgb(17 17 17 / .5)}
 .dot{width:24px;height:24px;padding:0;border:0;background:none;border-radius:var(--radius-pill);display:grid;place-items:center;cursor:pointer}
-.dot::before{content:"";width:8px;height:8px;border-radius:var(--radius-pill);background:color-mix(in srgb,var(--on-reward-container) 40%,transparent);transition:width 300ms var(--std),background-color 300ms var(--std)}
-.dot:hover::before{background:var(--on-reward-container)}
-.dot[aria-current="true"]::before{width:24px;background:var(--reward-stripe)}
+.dot::before{content:"";width:8px;height:8px;border-radius:var(--radius-pill);background:rgb(255 255 255 / .6);transition:width 300ms var(--std),background-color 300ms var(--std)}
+.dot:hover::before{background:#FFFFFF}
+.dot[aria-current="true"]::before{width:24px;background:var(--ember-500)}
+.dot:focus-visible{outline:2px solid #FFFFFF;outline-offset:0}
 
-/* Round icon buttons on ink */
+/* Phones under 480px: kept 72px clear of the WhatsApp button, the arrow
+   group would run into the centred dots, so it rises to sit 8px above
+   the dots' row (still right of the banner copy). */
+@media (max-width:479px){
+  .carousel-nav{bottom:44px}
+}
+/* Narrow phones: the 2:1 banners are under 180px tall, so the dots
+   shrink a step and hug the bottom edge to stay clear of the buttons */
+@media (max-width:389px){
+  .carousel-nav{bottom:36px}
+  .carousel-dots{bottom:4px;gap:0;padding:0 4px}
+}
+@media (min-width:641px){
+  .carousel-nav{right:clamp(24px,1024px - 50vw,72px);bottom:24px}
+  .carousel-arrow{--size:48px}
+  .carousel-arrow .icon{width:24px;height:24px}
+  .carousel-dots{bottom:12px}
+}
+@media (min-width:1021px){
+  .carousel-dots{bottom:16px}
+}
+
+/* Round icon buttons on ink (footer) */
 .icon-btn{width:48px;height:48px;border:0;border-radius:var(--radius-pill);background:var(--reward-container);color:var(--on-reward-container);box-shadow:inset 0 0 0 1px var(--outline);display:inline-grid;place-items:center;cursor:pointer;transition:background-color 150ms var(--std),transform 100ms var(--std)}
 .icon-btn:hover{background:color-mix(in srgb,var(--on-reward-container) 12%,var(--reward-container))}
 .icon-btn:active{transform:scale(.98)}
-
-/* Tablet: still stacked, with a wider image band */
-@media (min-width:641px){
-  .slide-media{aspect-ratio:2/1;object-position:85% 50%}
-  .slide-copy{padding:32px 40px 8px}
-  .slide-title{font-size:40px;line-height:48px;letter-spacing:-.5px;max-width:20ch}
-  .carousel-controls{padding:16px 40px 32px}
-}
-/* Desktop: text over the image */
-@media (min-width:1021px){
-  .slide{min-height:500px;justify-content:center}
-  .slide-media{position:absolute;inset:0;height:100%;aspect-ratio:auto;object-position:center}
-  .slide::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--reward-container) 0%,color-mix(in srgb,var(--reward-container) 75%,transparent) 42%,transparent 72%)}
-  .slide-copy{position:relative;z-index:2;max-width:680px;padding:56px 64px 112px}
-  .slide-title{font-size:48px;line-height:56px;max-width:18ch}
-  .carousel-controls{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 64px 40px}
-}
 
 
 /* ---------------------------------------------------------------------
@@ -324,27 +412,60 @@ main{padding-bottom:80px}
 .filter-tabs::-webkit-scrollbar{display:none}
 .filter-tabs button{font:600 14px/20px var(--font);background:none;border:0;padding:14px 16px;color:var(--on-surface-variant);border-bottom:3px solid transparent;cursor:pointer;margin-bottom:-1px;white-space:nowrap;min-height:48px}
 .filter-tabs button:hover{color:var(--on-surface)}
-.filter-tabs button[aria-pressed="true"]{color:var(--primary);border-bottom-color:var(--primary)}
+.filter-tabs button[aria-selected="true"]{color:var(--primary);border-bottom-color:var(--primary)}
+.filter-tabs button:focus-visible,.filter-chips button:focus-visible{outline-offset:-2px}
+.filter-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:-8px 0 24px;padding:2px}
+.filter-chips::-webkit-scrollbar{display:none}
+.filter-chips[hidden]{display:none}
+.filter-chips button{flex:none;min-height:40px;padding:0 16px;border:1px solid var(--outline-variant);border-radius:var(--radius-pill);background:var(--surface);color:var(--on-surface-variant);font:500 14px/20px var(--font);white-space:nowrap;cursor:pointer}
+.filter-chips button:hover{color:var(--on-surface)}
+.filter-chips button[aria-selected="true"]{background:var(--primary-container);border-color:transparent;color:var(--on-primary-container)}
 
+/* 2 columns on phones and tablets, 3 on laptops, 4 from 1440px */
 .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .product-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md);overflow:hidden;transition:box-shadow 150ms var(--std),transform 150ms var(--std)}
 .product-card:hover{box-shadow:var(--e3);transform:translateY(-2px)}
 .product-card[hidden]{display:none}
-/* White plate behind product photos, the same treatment the logo gets */
-.product-media{background:#fff;border-bottom:1px solid var(--outline-variant)}
-.product-media img{width:100%;aspect-ratio:1/1;object-fit:cover}
+/* Cards fade up into place after the tab or chip changes */
+.product-grid.is-filtering > li{animation:product-in 320ms var(--decel) both}
+@keyframes product-in{from{opacity:0;transform:translateY(8px)}}
+
+/* Image tile, catalogue style: always white (in dark mode too), square,
+   the whole product centred with even margins around it. object-fit:
+   contain, so a photo of any shape is never cropped. No blur, and no
+   drop shadow either: the photos have their own soft shadow, and a CSS
+   shadow would outline the edges of a white-background photo. */
+.product-media{position:relative;aspect-ratio:1/1;background:var(--tile-surface);border-bottom:1px solid var(--outline-variant);overflow:hidden}
+.product-media img{position:absolute;inset:0;width:100%;height:100%;padding:11%;object-fit:contain;object-position:center;opacity:0;transition:opacity 250ms var(--std)}
+.product-media[data-state="image"] img{opacity:1}
+/* No photo yet (or it failed to load): category icon and product name */
+.product-fallback{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:11%;text-align:center;color:var(--tile-on-surface-variant)}
+.product-media[data-state="fallback"] .product-fallback{display:flex}
+.product-fallback .icon{width:44px;height:44px;color:var(--tile-icon);stroke-width:1.25}
+.product-fallback span{font:500 12px/16px var(--font);max-width:18ch}
+
 .product-body{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:12px}
 .product-name{font:600 14px/20px var(--font)}
-/* Let the long button label wrap on narrow two-column phones */
-.product-body .btn{margin-top:auto;height:auto;min-height:var(--h);padding:8px 12px;white-space:normal;text-align:center}
+
+/* Shown only if a category has no products */
+.product-empty{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:12px;padding:40px 24px;text-align:center;background:var(--surface);border:1px dashed var(--outline-variant);border-radius:var(--radius-md);color:var(--on-surface-variant)}
+.product-empty[hidden]{display:none}
+.product-empty > .icon{width:40px;height:40px;color:var(--primary)}
+.product-empty p{max-width:40ch}
+.product-noscript{padding:24px;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md)}
 
 @media (min-width:641px){
-  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .product-grid{gap:16px}
   .product-body{padding:16px 12px;gap:10px}
   .product-name{font-size:16px;line-height:24px}
+  .product-fallback .icon{width:64px;height:64px}
+  .product-fallback span{font-size:13px;line-height:18px}
 }
 @media (min-width:1021px){
-  .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+}
+@media (min-width:1440px){
+  .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 
 
@@ -384,15 +505,17 @@ main{padding-bottom:80px}
 
 
 /* ---------------------------------------------------------------------
-   11. Brands (plain text wordmarks)
+   11. Brands (single-colour logos, plain text where no logo exists)
    --------------------------------------------------------------------- */
 .brand-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.brand-grid li{display:grid;place-items:center;min-height:64px;padding:8px;text-align:center;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md);font:600 16px/24px var(--font);letter-spacing:.1px;color:var(--on-surface-variant);transition:color 150ms var(--std),box-shadow 150ms var(--std)}
+.brand-grid li{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:88px;padding:8px;text-align:center;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md);font:600 16px/24px var(--font);letter-spacing:.1px;color:var(--on-surface-variant);transition:color 150ms var(--std),box-shadow 150ms var(--std)}
 .brand-grid li:hover{color:var(--on-surface);box-shadow:var(--e1)}
+.brand-logo{flex:none;max-width:100%;height:auto}
+.brand-grid li span{font-size:13px;line-height:16px}
 
 @media (min-width:641px){
   .brand-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-  .brand-grid li{min-height:72px;font-size:18px;line-height:28px}
+  .brand-grid li{min-height:96px;font-size:18px;line-height:28px}
 }
 @media (min-width:1021px){
   .brand-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
@@ -403,7 +526,7 @@ main{padding-bottom:80px}
    12. Reviews
    Phones: swipeable row with scroll-snap. Tablet and up: grid.
    --------------------------------------------------------------------- */
-.review-list{display:grid;grid-auto-flow:column;grid-auto-columns:85%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--gutter);margin:0 calc(var(--gutter) * -1);padding:4px var(--gutter) 12px;border-radius:var(--radius-md)}
+.review-list{display:grid;grid-auto-flow:column;grid-auto-columns:85%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--page-gutter);margin:0 calc(var(--page-gutter) * -1);padding:4px var(--page-gutter) 12px;border-radius:var(--radius-md)}
 .review-card{scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--outline-variant);border-radius:var(--radius-md);padding:20px}
 .stars{display:flex;gap:2px;color:var(--ember-500)}
 .stars .icon{width:20px;height:20px;fill:currentColor;stroke-width:1}
@@ -469,6 +592,7 @@ a.contact-value{font-weight:600}
 .site-footer{background:var(--reward-container);color:var(--on-reward-container);padding-top:48px}
 .footer-grid{display:grid;gap:32px}
 .footer-brand p{margin-top:16px;font-size:14px;line-height:20px;opacity:.85;max-width:40ch}
+.social-links{display:flex;gap:12px;margin-top:20px}
 .footer-title{font:600 14px/20px var(--font);letter-spacing:.5px;margin-bottom:12px}
 .footer-links{display:grid;gap:4px;font-size:14px;line-height:20px}
 .footer-links a,.footer-links address{color:color-mix(in srgb,var(--on-reward-container) 80%,transparent);font-weight:400;text-decoration:none;display:inline-block;padding:4px 0}
@@ -480,14 +604,20 @@ a.contact-value{font-weight:600}
 
 @media (min-width:641px){
   .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .footer-bottom{flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-right:0}
+  .footer-bottom{flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
 }
 @media (min-width:1021px){
   .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:48px}
 }
 
 .wa-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:15;width:56px;height:56px;border-radius:var(--radius-pill);display:grid;place-items:center;background:var(--surface);color:var(--wa);border:1px solid var(--outline-variant);box-shadow:var(--e3);transition:transform 150ms var(--std),box-shadow 150ms var(--std)}
+.wa-fab{transition:transform 150ms var(--std),box-shadow 150ms var(--std),opacity 150ms var(--std),visibility 150ms}
 .wa-fab .icon{width:28px;height:28px}
+/* Step aside while product cards pass behind it, so it never covers a
+   card (the content runs close to the screen edge at every width; the
+   header's WhatsApp button stays in view meanwhile). The footer's
+   bottom row keeps 72px clear on the right for it. */
+.wa-fab.is-tucked{opacity:0;visibility:hidden;transform:translateY(16px)}
 .wa-fab:hover{color:var(--wa);transform:translateY(-2px);box-shadow:var(--e5)}
 @media (min-width:641px){ .wa-fab{right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px))} }
 
@@ -498,8 +628,9 @@ a.contact-value{font-weight:600}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important}
-  .carousel-track{transition:none}
+  .carousel-track,.carousel-viewport{transition:none}
   .cat-card:hover,.product-card:hover,.wa-fab:hover{transform:none}
+  .product-grid.is-filtering > li{animation:none}
 }
 
 /* Without JavaScript the hero becomes a swipeable row and the controls hide */
@@ -507,4 +638,3 @@ a.contact-value{font-weight:600}
 .no-js .slide{scroll-snap-align:start}
 .no-js .carousel-controls{display:none}
 .no-js .theme-btn{display:none}
-.no-js .slide-copy{padding-bottom:48px}
