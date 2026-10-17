@@ -180,7 +180,7 @@ main{padding-bottom:80px}
 .plate img{height:32px;width:auto}
 @media (min-width:641px){ .plate img{height:40px} }
 
-.sec-head{display:flex;align-items:baseline;gap:8px 16px;flex-wrap:wrap;margin-bottom:24px;border-bottom:1px solid var(--outline-variant);padding-bottom:12px}
+.sec-head{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-bottom:24px;border-bottom:1px solid var(--outline-variant);padding-bottom:12px}
 .sec-head h2{font-size:28px;line-height:36px;font-weight:700;letter-spacing:-.25px}
 .sec-head p{color:var(--on-surface-variant);font-size:15px;max-width:62ch}
 .sec-head--flush{border-bottom:0;padding-bottom:0;margin-bottom:8px}
