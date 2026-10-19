@@ -200,8 +200,8 @@ function setupThemeToggle() {
      the tab is hidden
    - Touch swipe, arrow keys, dots, previous/next buttons
    - prefers-reduced-motion: no autoplay and no sliding animation
-   - Banners differ in shape (TV and AC are 2:1, the others 16:9), so
-     the viewport takes the height of the slide on screen
+   - Height comes from CSS alone: every slide shares one aspect ratio
+     (--hero-ratio in style.css), so nothing here measures or sets it
    --------------------------------------------------------------------- */
 function setupCarousel(root) {
   if (!root) return;
@@ -261,15 +261,10 @@ function setupCarousel(root) {
 
   const currentIndex = () => (position - 1 + count) % count;
 
-  /** Size the viewport to the slide at `position` (clones match their originals). */
-  const fitHeight = () => { viewport.style.height = `${track.children[position].offsetHeight}px`; };
-
   /** Move the track. animate=false jumps instantly. */
   function render(animate) {
     track.classList.toggle('no-anim', !animate);
-    viewport.classList.toggle('no-anim', !animate);
     track.style.transform = `translateX(${-position * 100}%)`;
-    fitHeight();
     if (!animate) void track.offsetWidth; // force a reflow so the next move animates again
   }
 
@@ -410,14 +405,6 @@ function setupCarousel(root) {
   const warmUp = () => root.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
   if (document.readyState === 'complete') warmUp();
   else window.addEventListener('load', warmUp, { once: true });
-
-  // Follow the page width (the track's height changes with it), without easing
-  new ResizeObserver(() => {
-    viewport.classList.add('no-anim');
-    fitHeight();
-    void viewport.offsetHeight;
-    viewport.classList.remove('no-anim');
-  }).observe(track);
 
   // Initial state
   render(false);

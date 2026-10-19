@@ -233,48 +233,66 @@ main{padding-bottom:80px}
 
 /* ---------------------------------------------------------------------
    6. Hero carousel
-   Each slide is one finished banner image, shown sharp and whole: the
-   slide takes its image's own aspect ratio (--ratio), so the picture
-   fills it edge to edge with nothing cropped, blurred or letterboxed.
-   TV and AC are 2:1 and the others 16:9, so slides differ in height:
-   script.js sets the viewport to the slide on screen and eases between
-   the two heights.
+   Each slide is one finished banner image. The banners are two shapes
+   (mobile and fridge are 1672x941 = 1.777:1, TV and AC 1774x887 = 2:1),
+   so every slide shares one frame, --hero-ratio, and its image covers
+   that frame: never stretched, blurred or letterboxed. The frame sets
+   the height, so the hero is the same height on every slide and the
+   page below never moves while it auto-scrolls.
+   1.885:1 is the balance point between the two shapes. The 16:9
+   banners lose 2.87% top and bottom, the 2:1 banners 2.88% left and
+   right, and those strips are plain background on all four. Every
+   ratio from 1.880 to 1.890 keeps each edge under 3%; outside that
+   window one pair goes over (1.9 cuts 3.24% off the 16:9 ones).
+   --hero-pos (per banner) is the image's object-position. With crops
+   this small only a near-centred image keeps both edges under 3% (each
+   axis has about 48% to 52% to play with), so all four sit at 50% 50%.
+   Phones keep the same frame: a taller one would enlarge the art only
+   by cutting a sixth or more off its sides, through the products.
    The only HTML on a slide is the "Explore collection" link, laid
    exactly over the button painted into the art so the old label never
-   shows. The slide is a size container: positions are % of the image
-   and the link's text is in cqw (1cqw = 1% of the slide width), so it
-   stays on the painted button at every screen size.
-   Arrows and dots float over the image, clear of the banner copy; the
-   carousel ends where the image ends.
+   shows. The slide is a size container: positions are % of the slide
+   and sizes are in cqw (1cqw = 1% of the slide width), so it stays on
+   the painted button at every screen size.
+   Arrows and dots float over the image, clear of the banner copy.
    --------------------------------------------------------------------- */
 .hero{padding-top:16px}
 @media (min-width:641px){ .hero{padding-top:24px} }
 
-.carousel{position:relative;background:var(--surface-variant);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--e2)}
-.carousel-viewport{overflow:hidden;transition:height 600ms var(--std)}
+.carousel{--hero-ratio:1.885/1;position:relative;background:var(--surface-variant);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--e2)}
+.carousel-viewport{overflow:hidden;aspect-ratio:var(--hero-ratio)}
 .carousel-track{display:flex;align-items:flex-start;transition:transform 600ms var(--std);touch-action:pan-y}
-.carousel-viewport.no-anim,
 .carousel-track.no-anim{transition:none}
 
-.slide{flex:0 0 100%;min-width:0;position:relative;aspect-ratio:var(--ratio);container-type:inline-size}
-.slide picture{display:block}
-.banner-img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.slide{flex:0 0 100%;min-width:0;position:relative;aspect-ratio:var(--hero-ratio);overflow:hidden;container-type:inline-size}
+.slide picture{display:block;height:100%}
+.banner-img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--hero-pos,50% 50%);user-select:none;-webkit-user-drag:none}
 
-/* The covering button. Per banner (measured from the art):
-     --ratio      the image's width / height
-     --cta-x      left edge, % of image width
-     --cta-y      vertical centre, % of image height
-     --cta-min-w  painted button's width + margin, so it is always covered
+/* The covering button. Per banner:
+     --hero-pos   the image's object-position in the shared frame
+     --cta-x      left edge, % of slide width
+     --cta-y      vertical centre, % of slide height
+     --cta-min-w  painted button's width + margin, % of slide width, so
+                  it is always covered
+     --cta-scale  size of the art relative to the slide width: 1 for the
+                  16:9 banners (they fill the width), 2 / 1.885 = 1.061
+                  for the 2:1 banners (they fill the height and overflow
+                  the sides), so the link matches the painted button
      --cta-bg / --cta-fg / --cta-border  sampled from the art. These are
      fixed colours, not theme tokens, because the image doesn't change
-     with light/dark mode either. */
+     with light/dark mode either.
+   Positions were measured as % of the image, then mapped through the
+   crop: 16:9 banners keep x and get y = (y_img - 2.869) / 0.94262;
+   2:1 banners keep y and get x = (x_img - 2.875) * 1.061, width * 1.061.
+   Re-run that mapping if --hero-ratio or --hero-pos changes. */
 .banner-cta{
+  --u:calc(1cqw * var(--cta-scale,1));
   position:absolute;left:var(--cta-x);top:var(--cta-y);transform:translateY(-50%);
-  min-width:var(--cta-min-w,0);height:3.9cqw;padding:0 1.9cqw;
-  display:inline-flex;align-items:center;justify-content:center;gap:.8cqw;
+  min-width:var(--cta-min-w,0);height:calc(3.9 * var(--u));padding:0 calc(1.9 * var(--u));
+  display:inline-flex;align-items:center;justify-content:center;gap:calc(.8 * var(--u));
   border:var(--cta-border,0 solid transparent);border-radius:var(--radius-pill);
   background:var(--cta-bg);color:var(--cta-fg);
-  font:600 1.7cqw/1 var(--font);letter-spacing:.1px;white-space:nowrap;text-decoration:none;
+  font:600 calc(1.7 * var(--u))/1 var(--font);letter-spacing:.1px;white-space:nowrap;text-decoration:none;
   transition:transform 100ms var(--std),box-shadow 150ms var(--std);
 }
 /* On phones the pill is only ~14px tall: an invisible strip gives it a
@@ -288,12 +306,14 @@ main{padding-bottom:80px}
 .banner-cta:active{transform:translateY(-50%) scale(.98)}
 .banner-cta:focus-visible{outline:max(2px,.25cqw) solid var(--ember-500);outline-offset:max(2px,.3cqw)}
 
-[data-banner="mobile"]{--ratio:1672/941;--cta-x:9.57%;--cta-y:63.18%;--cta-min-w:15.61%;--cta-fg:#FFFFFF;
+/* Image coordinates before mapping: mobile x 9.57 y 63.18 w 15.61;
+   tv x 6.99 y 71.98 w 11.56; fridge x 15.07 y 71; ac x 10.48 y 74.13 w 11.61 */
+[data-banner="mobile"]{--hero-pos:50% 50%;--cta-x:9.57%;--cta-y:63.98%;--cta-min-w:15.61%;--cta-fg:#FFFFFF;
   --cta-bg:linear-gradient(97deg,#5C4D5D 0%,#7A6371 45%,#A88B8F 100%);--cta-border:max(1px,.12cqw) solid rgb(255 255 255 / .75)}
-[data-banner="tv"]{--ratio:1774/887;--cta-x:6.99%;--cta-y:71.98%;--cta-min-w:11.56%;--cta-fg:#FFFFFF;
+[data-banner="tv"]{--hero-pos:50% 50%;--cta-scale:1.061;--cta-x:4.37%;--cta-y:71.98%;--cta-min-w:12.27%;--cta-fg:#FFFFFF;
   --cta-bg:linear-gradient(90deg,#3B2D96,#4630AE)}
-[data-banner="fridge"]{--ratio:1672/941;--cta-x:15.07%;--cta-y:71%;--cta-fg:#FFFFFF;--cta-bg:var(--ink)} /* no painted button: placed under the icons row */
-[data-banner="ac"]{--ratio:1774/887;--cta-x:10.48%;--cta-y:74.13%;--cta-min-w:11.61%;--cta-fg:#FFFFFF;
+[data-banner="fridge"]{--hero-pos:50% 50%;--cta-x:15.07%;--cta-y:72.28%;--cta-fg:#FFFFFF;--cta-bg:var(--ink)} /* no painted button: placed under the icons row */
+[data-banner="ac"]{--hero-pos:50% 50%;--cta-scale:1.061;--cta-x:8.07%;--cta-y:74.13%;--cta-min-w:12.32%;--cta-fg:#FFFFFF;
   --cta-bg:linear-gradient(90deg,#815CFD,#AF70FE)}
 
 /* Controls layer: covers the image but only the buttons take clicks.
@@ -339,7 +359,7 @@ main{padding-bottom:80px}
 @media (max-width:479px){
   .carousel-nav{bottom:44px}
 }
-/* Narrow phones: the 2:1 banners are under 180px tall, so the dots
+/* Narrow phones: the hero is under 180px tall, so the dots
    shrink a step and hug the bottom edge to stay clear of the buttons */
 @media (max-width:389px){
   .carousel-nav{bottom:36px}
@@ -628,7 +648,7 @@ a.contact-value{font-weight:600}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:1ms!important;transition-duration:1ms!important}
-  .carousel-track,.carousel-viewport{transition:none}
+  .carousel-track{transition:none}
   .cat-card:hover,.product-card:hover,.wa-fab:hover{transform:none}
   .product-grid.is-filtering > li{animation:none}
 }

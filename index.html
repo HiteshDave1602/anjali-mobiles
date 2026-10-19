@@ -122,16 +122,17 @@
 
     <!-- ============================================================
          2. HERO CAROUSEL
-         Each slide is one finished banner from /assets/banners/, shown
-         sharp and whole (no cropping, no backdrop): <name>.webp for
-         modern browsers, <name>.png (an untouched copy of the original)
-         as the fallback. The banners carry their own copy, so the only
-         HTML on a slide is the "Explore collection" link, laid exactly
-         over the button painted into the art. Its position and colours
-         are set per banner in style.css (section 6, [data-banner="..."]).
+         Each slide is one finished banner from /assets/banners/:
+         <name>.webp for modern browsers, <name>.png (an untouched copy
+         of the original) as the fallback. The banners carry their own
+         copy, so the only HTML on a slide is the "Explore collection"
+         link, laid exactly over the button painted into the art. Its
+         position and colours are set per banner in style.css
+         (section 6, [data-banner="..."]).
          The banners are not all the same shape (TV and AC are 2:1, the
-         others 16:9), so each slide keeps its own image's aspect ratio
-         and script.js sizes the carousel to the slide on screen.
+         others 16:9), so every slide shares one frame (--hero-ratio,
+         1.885:1) that each image covers, losing under 3% per edge of
+         plain background. The hero is the same height on every slide.
          Arrows and dots float over the image; nothing sits below it.
          ============================================================ -->
     <section class="hero" aria-label="Featured collections">
