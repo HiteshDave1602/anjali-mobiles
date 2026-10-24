@@ -30,7 +30,7 @@ const STORE = {
   phoneNumber: '+917575050007',
   phoneDisplay: '+91 75750 50007',
 
-  address: 'Opposite Post Office, Main Bazar, Vesma, Navsari, Gujarat – 394352',
+  address: '10, Dilar Shopping Centre, Opp: Post Office, Vesma, Navsari, Gujarat 396475',
 
   hours: [                                    // TODO
     { days: 'Mon – Sat',         time: '10:00 am – 9:00 pm' },
@@ -39,8 +39,8 @@ const STORE = {
   hoursShort: 'Open 7 days a week',           // TODO short line shown in the top bar
 
   // Google Maps (address search; swap in your shop's Maps "Share" link for an exact pin)
-  mapsDirectionsUrl: 'https://www.google.com/maps/search/?api=1&query=Post+Office+Main+Bazar+Vesma+Navsari+Gujarat+394352',
-  mapEmbedUrl: 'https://www.google.com/maps?q=Post+Office+Main+Bazar+Vesma+Navsari+Gujarat+394352&output=embed',
+  mapsDirectionsUrl: 'https://www.google.com/maps/search/?api=1&query=10+Dilar+Shopping+Centre+Vesma+Navsari+Gujarat+396475',
+  mapEmbedUrl: 'https://www.google.com/maps?q=10+Dilar+Shopping+Centre+Vesma+Navsari+Gujarat+396475&output=embed',
 
   // Social profiles
   instagramUrl: 'https://www.instagram.com/anjali_mobile_electronic/',
